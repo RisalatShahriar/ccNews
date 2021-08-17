@@ -31,6 +31,19 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'achievements',
+    'bdAffirs',
+    'CC',
+    'comics',
+    'culturalInsights',
+    'districtInsights',
+    'diversed',
+    'interviews',
+    'sportsInsights',
+    'trending',
+    'youth',
+    'home',
+    'publish',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
