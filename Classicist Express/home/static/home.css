@@ -383,16 +383,10 @@ footer > p {
   }
 
   .nav-bar::-webkit-scrollbar {
-    height: 5px;
+    display:none;
   }
 
-  .nav-bar::-webkit-scrollbar-track {
-    background: #000;
-  }
-
-  .nav-bar::-webkit-scrollbar-thumb {
-    background: #d6ae67;
-  }
+  
 
   .nav-bar nav ul {
     display: flex;
