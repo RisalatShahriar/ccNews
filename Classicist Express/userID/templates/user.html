@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{% static 'user.css' %}" />
+    <title>{{ ID }} | Cultural Classist</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="profile">
+        <div class="profile-img">
+          <img src="{% static 'images/profile.png' %}" alt="" />
+        </div>
+        <div class="profile-info">
+          <h3>{{ ID }}</h3>
+          <h5>The Classicist Express Content Writer</h5>
+        </div>
+      </div>
+      <div class="tab-container">
+        <div class="button-container">
+          <button onclick="showPanel(0)" class="btn">
+            <i class="far fa-bell"></i>Notifications
+          </button>
+          <button onclick="showPanel(1)" class="btn">
+            <i class="fas fa-user-check"></i>ID card
+          </button>
+          <a class="logout" href="{% url 'login' %}"> <i class="fas fa-sign-out-alt"></i>Logout </a>
+        </div>
+        <div class="tab-panel">
+          No notifications
+        </div>
+        <div class="tab-panel">
+          Coming soon!
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'user.js' %}"></script>
+  </body>
+</html>

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'publish',
     'login',
     'registration',
+    'userID',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
