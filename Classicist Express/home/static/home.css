@@ -364,9 +364,6 @@ footer > p {
 
   .nav-bar {
     flex: 1 0 auto;
-    /*demo*/
-    /* background: #252525; */
-    /*demo*/
     transform: scaleY(1);
     opacity: 1;
     height: auto;
@@ -382,8 +379,16 @@ footer > p {
     top: 0;
   }
 
-  .nav-bar::-webkit-scrollbar {
-    display:none;
+ .nav-bar::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .nav-bar::-webkit-scrollbar-track {
+    background: #d6ae67;
+  }
+
+  .nav-bar::-webkit-scrollbar-thumb {
+    background: #fff;
   }
 
   
