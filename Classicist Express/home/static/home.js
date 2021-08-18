@@ -23,7 +23,7 @@ btnTimes.addEventListener("click", function () {
 function changeCss() {
   var bodyElement = document.querySelector("body");
   var navElement = document.querySelector(".nav-bar");
-  this.scrollY > 70
+  this.scrollY > 135
     ? navElement.classList.add("sticky")
     : navElement.classList.remove("sticky");
 }
