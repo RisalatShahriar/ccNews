@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="{% static 'login.css' %}" />
+    <!-- font-awesome cdn link -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="{% static 'images/logo.png' %}">
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="img">
+        <img src="{% static 'images/logo.png' %}" alt="" />
+      </div>
+      <div class="login-container">
+        <form action="{% url 'login' %}" id="form" method="post">{% csrf_token %}
+          <i class="fas fa-user avatar"></i>
+          <h2>log-in</h2>
+          <div class="input-div one">
+            <div class="icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div>
+
+              <h5>Email</h5>
+              <input
+                type="email"
+                class="input"
+                name="email"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <div class="input-div two">
+            <div class="icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div>
+              <h5>Password</h5>
+              <input
+                type="password"
+                class="input"
+                name="password"
+                autocomplete="off"
+                minlength="6"
+              />
+            </div>
+          </div>
+          {% if warning1 %}
+              <h6>Email or Password is invalid</h6>
+              {% elif warning2 %}
+              <h6>Can't Login</h6>
+              {% endif %}
+          <input type="submit" class="btn" value="login"/>
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="{% static 'login.js' %}"></script>
+  </body>
+</html>

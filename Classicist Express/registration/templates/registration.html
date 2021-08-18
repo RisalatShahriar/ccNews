@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="{% static 'images/logo.png' %}">
+    <title>Registration</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'registration.css' %}" />
+  </head>
+  <body>
+    <section class="registration">
+      <div class="img">
+        <img src="{% static 'images/logo.png' %}" alt="" />
+      </div>
+
+      <h1 class="title">Content Writer Registration</h1>
+
+      <form action="{% url 'registration' %}" id="form" method="POST" class="container">{% csrf_token %}
+        <div class="row">
+          <div class="col-lg-6 form-field">
+            <div class="input-div">
+              <div>
+
+                <h5 for="name" class="label">ID</h5>
+                <input
+                  type="number"
+                  class="input"
+                  name="name"
+                  autocomplete="nope"
+                  minlength="3"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 form-field">
+            <div class="input-div">
+              <div>
+                <h5 for="username" class="label">Email</h5>
+                <input
+                  type="email"
+                  class="input"
+                  name="email"
+                  autocomplete="off"
+                  minlength="5"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 form-field">
+            <div class="input-div">
+              <div>
+                <h5 for="password" class="label">Password</h5>
+                <input
+                  type="password"
+                  class="input"
+                  name="password"
+                  autocomplete="nope"
+                  minlength="6"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 form-field">
+            <div class="input-div">
+              <div>
+                <h5 for="password" class="label">Confirm Password</h5>
+                <input
+                  type="password"
+                  class="input"
+                  name="password2"
+                  autocomplete="nope"
+                  minlength="6"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 form-field">
+            <div class="input-div">
+              <div>
+                <h5 for="contact" class="label">Contact Number</h5>
+                <input
+                  type="text"
+                  class="input"
+                  name="contact"
+                  autocomplete="nope"
+                  minlength="11"
+                  maxlength="11"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 form-field">
+            <div class="select-div">
+              <div>
+                <select class="select" name="castles">
+                 <option value="">Castle</option>
+                  <option value="THE VALIANTS">THE VALIANTS</option>
+                  <option value="THE DECADES">THE DECADES</option>
+                  <option value="THE PERCIVALS">THE PERCIVALS</option>
+                  <option value="THE​ VENTURES">THE​ VENTURES</option>
+                  <option value="THE INGENIOUS">THE INGENIOUS</option>
+                  <option value="THE BRAWNS">THE BRAWNS</option>
+                  <option value="THE GLADIATORS">THE GLADIATORS</option>
+                  <option value="THE PRODIGIES">THE PRODIGIES</option>
+                  <option value="THE STALWARTS">THE STALWARTS</option>
+                  <option value="VETERANS">VETERANS</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12 form-field">
+            <div class="input-div">
+              <div>
+                <h5 for="address" class="label">Address</h5>
+                <input
+                  type="text"
+                  class="input"
+                  name="address"
+                  autocomplete="nope"
+                  minlength="12"
+                />
+              </div>
+            </div>
+          </div>
+
+           {% if warning %}
+                <h4>Passwords didn't match</h4>
+                {% elif warning2 %}
+                <h4>Email already exists</h4>
+                {% elif warning and warning2 %}
+                <h4>Something went wrong!</h4>
+                {% endif %}
+
+          <div class="checkbox col-lg-12">
+            <input type="checkbox" name="terms" />
+            <label for="terms">Agreed to terms and conditions</label>
+          </div>
+
+          <div class="form-field col-lg-12">
+            <input type="submit" name="submit" class="btn" value="register" />
+          </div>
+        </div>
+      </form>
+    </section>
+    <script src="{% static 'registration.js' %}"></script>
+  </body>
+</html>
