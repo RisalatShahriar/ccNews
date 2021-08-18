@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'login',
     'registration',
     'userID',
+    'readMore',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
