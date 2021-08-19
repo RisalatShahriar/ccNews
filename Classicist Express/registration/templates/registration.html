@@ -21,7 +21,7 @@
         <img src="{% static 'images/logo.png' %}" alt="" />
       </div>
 
-      <h1 class="title">Content Writer Registration</h1>
+      <h1 class="title">Content Writer And Admin Registration</h1>
 
       <form action="{% url 'registration' %}" id="form" method="POST" class="container">{% csrf_token %}
         <div class="row">
@@ -31,7 +31,7 @@
 
                 <h5 for="name" class="label">ID</h5>
                 <input
-                  type="number"
+                  type="text"
                   class="input"
                   name="name"
                   autocomplete="nope"
@@ -107,16 +107,8 @@
               <div>
                 <select class="select" name="castles">
                  <option value="">Castle</option>
-                  <option value="THE VALIANTS">THE VALIANTS</option>
-                  <option value="THE DECADES">THE DECADES</option>
-                  <option value="THE PERCIVALS">THE PERCIVALS</option>
-                  <option value="THE​ VENTURES">THE​ VENTURES</option>
-                  <option value="THE INGENIOUS">THE INGENIOUS</option>
-                  <option value="THE BRAWNS">THE BRAWNS</option>
-                  <option value="THE GLADIATORS">THE GLADIATORS</option>
-                  <option value="THE PRODIGIES">THE PRODIGIES</option>
-                  <option value="THE STALWARTS">THE STALWARTS</option>
-                  <option value="VETERANS">VETERANS</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Content Writer">Content Writer</option>
                 </select>
               </div>
             </div>
@@ -136,20 +128,6 @@
               </div>
             </div>
           </div>
-
-           {% if warning %}
-                <h4>Passwords didn't match</h4>
-                {% elif warning2 %}
-                <h4>Email already exists</h4>
-                {% elif warning and warning2 %}
-                <h4>Something went wrong!</h4>
-                {% endif %}
-
-          <div class="checkbox col-lg-12">
-            <input type="checkbox" name="terms" />
-            <label for="terms">Agreed to terms and conditions</label>
-          </div>
-
           <div class="form-field col-lg-12">
             <input type="submit" name="submit" class="btn" value="register" />
           </div>
