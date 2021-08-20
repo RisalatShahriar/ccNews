@@ -32,11 +32,11 @@
             </div>
             <div>
 
-              <h5>Email</h5>
+              <h5>ID</h5>
               <input
-                type="email"
+                type="text"
                 class="input"
-                name="email"
+                name="id"
                 autocomplete="off"
               />
             </div>
@@ -57,11 +57,9 @@
               />
             </div>
           </div>
-          {% if warning1 %}
-              <h6>Email or Password is invalid</h6>
-              {% elif warning2 %}
-              <h6>Can't Login</h6>
-              {% endif %}
+          {% if warning %}
+              <h6>ID or Password is invalid</h6>
+          {% endif %}
           <input type="submit" class="btn" value="login"/>
         </form>
       </div>

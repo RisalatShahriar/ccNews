@@ -1,7 +1,12 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
 def userID_home(req, ID):
-    return render(req, 'user.html', {
-        'ID': ID
-    })
+    if req.user.is_authenticated and str(req.user) == ID:
+        print(req.user)
+        return render(req, 'user.html', {
+            "ID": ID
+        })
+    else:
+        return HttpResponse("Access Denied")

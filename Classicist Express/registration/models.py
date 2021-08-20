@@ -5,6 +5,6 @@ from django.db import models
 class Data(models.Model):
     accessID = models.CharField(max_length=64)
     email = models.EmailField(max_length=90)
-    number = models.IntegerField(max_length=14)
+    number = models.IntegerField()
     address = models.CharField(max_length=128)
     post = models.CharField(max_length=20)
