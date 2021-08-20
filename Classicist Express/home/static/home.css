@@ -1,4 +1,6 @@
 @import url(//db.onlinewebfonts.com/c/32441506567156636049eb850b53f02a?family=Times+New+Roman);
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap");
+
 
 * {
   box-sizing: border-box;
@@ -38,6 +40,7 @@ h1 {
   text-align: center;
   opacity: 0.8;
   color: #000;
+  font-family: "Black Ops One", cursive;
 }
 
 .top-head {
