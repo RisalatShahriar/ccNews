@@ -172,3 +172,13 @@ h4 {
   color: red;
   margin-left: 15px;
 }
+
+label#selector {
+  padding: 16px 5px;
+  font-size: 17px;
+  color: #ccc;
+}
+
+input[type="file"] {
+  display: none;
+}
