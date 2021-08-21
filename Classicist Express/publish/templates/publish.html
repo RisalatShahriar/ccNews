@@ -34,13 +34,13 @@
     </div>
       <div class="container">
       <h1 class="heading">Publish News</h1>
-        <form action="/" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'publish' %}" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
       <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01"
           >Category</label
         >
-        <select class="form-select" id="inputGroupSelect01">
+        <select class="form-select" id="inputGroupSelect01" name="cat">
           <option selected>Choose...</option>
           <option value="Bangladesh Affairs">Bangladesh Affairs</option>
           <option value="Cultural Insights<">Cultural Insights</option>
@@ -69,19 +69,19 @@
         <span class="input-group-text" id="basic-addon1"
           ><i class="fas fa-heading"></i
         ></span>
-        <input type="text" class="form-control" placeholder="Heading" />
+        <input type="text" class="form-control" placeholder="Heading" name="heading" />
       </div>
 
       <div class="input-group textarea">
         <span class="input-group-text">Body</span>
-        <textarea class="form-control" aria-label="With textarea"></textarea>
+        <textarea class="form-control" aria-label="With textarea" name="news"></textarea>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1"
           ><i class="fas fa-times"></i
         ></span>
-        <input type="text" class="form-control" placeholder="P" />
+        <input type="text" class="form-control" placeholder="Tags" name="tags" />
       </div>
 
      <input type="submit" class="btn btn-dark btn-lg" value="PUBLISH" />
