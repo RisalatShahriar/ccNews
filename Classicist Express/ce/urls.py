@@ -21,5 +21,6 @@ urlpatterns = [
     path('login/', include('login.urls')),
     path('registration/', include('registration.urls')),
     path('user/', include('userID.urls')),
-    path('readmore/', include('readMore.urls'))
+    path('readmore/', include('readMore.urls')),
+    path('publish', include('publish.urls'))
 ]
