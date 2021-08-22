@@ -23,15 +23,7 @@
     <title>Publish | CC news</title>
   </head>
   <body>
-    <div class="header">
-      <div class="image">
-        <img src="profile.png" alt="" />
-      </div>
-      <div class="user-info">
-        <p>Username</p>
-        <a href=""><i class="fas fa-sign-out-alt"></i> Logout</a>
-      </div>
-    </div>
+   
       <div class="container">
       <h1 class="heading">Publish News</h1>
         <form action="{% url 'publish' %}" method="POST" enctype="multipart/form-data">
@@ -86,6 +78,7 @@
 
      <input type="submit" class="btn btn-dark btn-lg" value="PUBLISH" />
   </form>
+         <a href="#">Back to Home Page <i class="fas fa-arrow-right"></i></a>
       </div>
 
   </body>
