@@ -23,7 +23,7 @@
 
       <h1 class="title">Content Writer And Admin Registration</h1>
 
-      <form action="{% url 'registration' %}" id="form" method="POST" class="container">{% csrf_token %}
+      <form action="{% url 'registration' %}" id="form" method="POST" class="container" enctype="multipart/form-data">{% csrf_token %}
         <div class="row">
           <div class="col-lg-6 form-field">
             <div class="input-div">
@@ -133,7 +133,7 @@
             <div class="input-div">
               <div>
                 <input type="file" name="image" id="file" />
-                <label for="file" id="selector">Add Your Image</label>
+                <label for="file" id="selector"><i class="fas fa-upload"></i> Add Your Image</label>
               </div>
             </div>
           </div>

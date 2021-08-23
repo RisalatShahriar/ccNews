@@ -10,7 +10,7 @@ def registration_page(req):
             user_cred = User.objects.create_user(username=req.POST['name'], email=req.POST['email'],
                                             password=req.POST['password'])
             user_data = models.Data(accessID=req.POST['name'], email=req.POST['email'], number=req.POST['contact'],
-                                    post=req.POST.get('des'), address=req.POST['address'])
+                                    image=req.FILES.get('image'), post=req.POST.get('des'), address=req.POST['address'])
             user_cred.save()
             user_data.save()
             return render(req, 'registration.html')
