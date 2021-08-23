@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'registration',
     'userID',
     'readMore',
+    'denied',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
