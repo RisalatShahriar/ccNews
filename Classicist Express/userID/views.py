@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 
@@ -9,4 +9,4 @@ def userID_home(req, ID):
             "ID": ID
         })
     else:
-        return HttpResponse("Access Denied")
+        return redirect('denied')
