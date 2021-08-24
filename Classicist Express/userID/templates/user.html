@@ -19,11 +19,11 @@
     <div class="container">
       <div class="profile">
         <div class="profile-img">
-          <img src="{% static 'images/profile.png' %}" alt="" />
+          <img src="/media/{{ PROFILE }}" alt="Image not found" />
         </div>
         <div class="profile-info">
           <h3>{{ ID }}</h3>
-          <h5>The Classicist Express Content Writer</h5>
+          <h5>{{ POST }}</h5>
         </div>
       </div>
       <div class="tab-container">
@@ -34,7 +34,9 @@
           <button onclick="showPanel(1)" class="btn">
             <i class="fas fa-user-check"></i>ID card
           </button>
-          <a class="logout" href="{% url 'login' %}"> <i class="fas fa-sign-out-alt"></i>Logout </a>
+          <form action='{{ acc_url }}' class="logout" method="post">{% csrf_token %}
+            <input type="submit" class="btn" value="Logout"/>
+          </form>
         </div>
         <div class="tab-panel">
           No notifications
