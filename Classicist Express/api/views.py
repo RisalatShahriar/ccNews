@@ -14,3 +14,30 @@ def bdaffair(req):
     for i in news:
         helper.appender(send_list_api, i)
     return HttpResponse(json.dumps(send_list_api))
+
+def cultural_insights(req):
+    pass
+
+def sports_insights(req):
+    pass
+
+def achievements(req):
+    pass
+
+def interviews(req):
+    pass
+
+def cc(req):
+    pass
+
+def youth(req):
+    pass
+
+def district_insights(req):
+    pass
+
+def trending(req):
+    pass
+
+def diversed(req):
+    pass
