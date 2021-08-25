@@ -5,6 +5,9 @@ import json
 
 
 # Create your views here.
+def home_data(req):
+    pass
+
 def bdaffair(req):
     news = models.News.objects.filter(category='Bangladesh Affairs')
     send_list_api = []

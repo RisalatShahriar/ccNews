@@ -1,8 +1,12 @@
 // jshint esversion: 6
 
+var time = new Date(Date.now()).toLocaleString().split(',')[0]
 const btnHam = document.querySelector(".ham-btn");
 const btnTimes = document.querySelector(".times-btn");
 const navBar = document.getElementById("nav-bar");
+const date = document.getElementById('datetime');
+
+date.innerHTML = time;
 
 btnHam.addEventListener("click", function () {
   if (btnHam.className !== "") {
