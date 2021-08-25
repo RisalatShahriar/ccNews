@@ -19,7 +19,6 @@ const showPanel = (i) => {
     tabPanels[i].style.display = "block";
   }
 };
-
 if (mq.matches) {
   showPanel(0);
 }

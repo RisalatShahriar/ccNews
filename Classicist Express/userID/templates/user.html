@@ -13,6 +13,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="{% static 'user.css' %}" />
+    <link rel="icon" href="{% static 'images/logo.png' %}">
     <title>{{ ID }} | Cultural Classist</title>
   </head>
   <body>
@@ -32,17 +33,18 @@
             <i class="far fa-bell"></i>Notifications
           </button>
           <button onclick="showPanel(1)" class="btn">
-            <i class="fas fa-user-check"></i>ID card
+            <i class="fas fa-user-check"></i><a href="{% url 'publish' %}">Publish news</a>
           </button>
           <form action='{{ acc_url }}' class="logout" method="post">{% csrf_token %}
-            <input type="submit" class="btn" value="Logout"/>
+           <input type="submit" class="btn" value="Logout" class="logout" /><i
+              class="fas fa-sign-out-alt logout"
+            ></i>
           </form>
         </div>
         <div class="tab-panel">
           No notifications
         </div>
         <div class="tab-panel">
-          Coming soon!
         </div>
       </div>
     </div>

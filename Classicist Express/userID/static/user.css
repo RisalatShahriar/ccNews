@@ -77,18 +77,21 @@ body {
     display: block;
   }
 
-  .logout {
-    color: #fff;
-    padding: 15px 10px 15px 0;
+  input {
+    background-color: transparent;
+    color: #ccc;
+    border: none;
     font-size: 16px;
   }
 
-  .logout i {
-    margin-right: 5px;
+  .logout {
+    margin-left: 5px;
+    color: #ccc;
   }
 
+  .input:hover,
   .logout:hover {
-    opacity: 0.6;
+    color: #fff;
   }
 
   @media (max-width: 310px) {
@@ -166,7 +169,24 @@ body {
     font-size: 15px;
   }
 
+  input {
+    background-color: transparent;
+    color: #ccc;
+    border: none;
+    font-size: 16px;
+  }
+
+  form {
+    display: inline;
+  }
+
+  .logout {
+    margin-left: 5px;
+    color: #ccc;
+  }
+
+  input:hover,
   .logout:hover {
-    opacity: 0.7;
+    color: #fff;
   }
 }
