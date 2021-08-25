@@ -1,16 +1,14 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
 from . import models
 
 
 def publish_page(req):
-    if req.method == 'POST':
-        if req.user.is_authenticated:
-            news = models.News(category=req.POST.get('cat'), heading=req.POST['heading'],
-                               news=req.POST['news'], tags=req.POST['tags'])
+    if req.user.is_authenticated:
+        if req.method == 'POST':
+            news = models.News(category=req.POST.get('cat'), heading=req.POST['heading'], news=req.POST['news'], tags=req.POST['tags'])
             news.save()
             return render(req, 'publish.html')
         else:
-            return HttpResponse("Access denied")
+            return render(req, 'publish.html')
     else:
-        return render(req, 'publish.html')
+        return redirect('denied')
