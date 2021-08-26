@@ -11,6 +11,7 @@ urlpatterns = [
     path('cc', views.cc, name='cc'),
     path('youth', views.youth, name='youth'),
     path('district', views.district_insights, name='District'),
+    path('comics', views.comics, name='Comics'),
     path('trending', views.trending, name='trending'),
     path('diversed', views.diversed, name='diversed')
 ]
