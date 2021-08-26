@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'readmore.css' %}">
+    <link rel="icon" href="{% static 'images/logo.png' %}">
     <script
     src="https://kit.fontawesome.com/dbed6b6114.js"
     crossorigin="anonymous"
   ></script>
-    <title>Name</title>
+    <title>The Classicist Express</title>
 </head>
 <body>
     <header>
@@ -30,7 +31,7 @@
               </div>
             <div class="headline">
               <div class="image">
-                <img src="./images/newslogo.png" alt="">
+                <img src="{% static 'images/newslogo.png' %}" alt="">
               </div>
               <p>Sunday, 14 July, 2021</p>
             </div>
@@ -65,22 +66,17 @@
         </div>
       </header>
       <div class="news">
-        <h1 class="headline">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur recusandae nesciunt corporis officiis voluptatibus minima.</h1>
+        <h1 class="headline">{{ HEADING }}</h1>
         <div class="image">
 
           <img src="./images/mountain.jpg" alt="">
         </div>
         <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non arcu risus quis varius. Sit amet purus gravida quis blandit turpis. Pharetra sit amet aliquam id diam. Sed blandit libero volutpat sed cras ornare arcu. Accumsan tortor posuere ac ut consequat semper viverra. Fusce id velit ut tortor pretium viverra suspendisse potenti nullam. Tristique risus nec feugiat in fermentum posuere. Cursus in hac habitasse platea dictumst quisque. Morbi tristique senectus et netus et malesuada.</p>
-
-          <p>Nibh mauris cursus mattis molestie a. Ullamcorper sit amet risus nullam eget. In fermentum et sollicitudin ac orci phasellus egestas tellus rutrum. Leo integer malesuada nunc vel risus commodo viverra. Nulla facilisi etiam dignissim diam quis enim lobortis scelerisque. Eu augue ut lectus arcu bibendum at varius vel pharetra. Sed viverra ipsum nunc aliquet. Laoreet sit amet cursus sit amet. Eu non diam phasellus vestibulum lorem sed risus ultricies tristique. Aliquet nec ullamcorper sit amet risus. Eget nullam non nisi est sit amet facilisis.
-
+          <p>
+              {{ NEWS }}
           </p>
-
-          <p>Ac tortor vitae purus faucibus. Quis varius quam quisque id diam vel quam. Leo urna molestie at elementum eu facilisis. Lacus luctus accumsan tortor posuere ac ut consequat semper. Phasellus faucibus scelerisque eleifend donec pretium vulputate. Pretium fusce id velit ut tortor pretium viverra suspendisse. Tincidunt augue interdum velit euismod in. Purus sit amet volutpat consequat mauris nunc congue. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam. Dictum varius duis at consectetur lorem donec massa. Risus feugiat in ante metus dictum at tempor commodo.</p>
-
         </div>
-      <a href="#" class="btn">Go to Home</a>
+      <a href="{% url 'home' %}" class="btn">Go to Home</a>
       </div>
     <script src="{% static 'readmore.js' %}"></script>
   </body>

@@ -18,6 +18,7 @@ function topLeft() {
     .then(res => res.json())
     .then(data => {
         heading.innerHTML = data.heading[1];
+        link.href = `/readmore/${data.link[1]}`
     })
 }
 
@@ -46,3 +47,4 @@ function changeCss() {
 }
 
 window.addEventListener("scroll", changeCss, false);
+topLeft()
