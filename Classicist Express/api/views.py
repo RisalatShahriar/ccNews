@@ -50,7 +50,7 @@ def sports_insights(req):
         count += 1
     return HttpResponse(json.dumps(send_api))
 
-def achievements(req):
+def internatioal(req):
     news = models.News.objects.filter(category='International Affairs')
     send_api = {
         'heading': {},
