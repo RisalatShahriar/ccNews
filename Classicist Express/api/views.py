@@ -6,7 +6,7 @@ import json
 
 # Create your views here.
 def home_data(req):
-    pass
+    return HttpResponse(helper.api_send(models.News.objects.all()))
 
 def bdaffair(req):
     return HttpResponse(helper.api_send(models.News.objects.filter(category='Bangladesh Affairs')))

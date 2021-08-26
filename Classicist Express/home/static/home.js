@@ -8,6 +8,19 @@ const date = document.getElementById('datetime');
 
 date.innerHTML = time;
 
+function topLeft() {
+    const heading = document.querySelector("#topLeftHeading");
+    const news = document.querySelector("#topLeftNews");
+    const link = document.querySelector("#topLeftLink");
+    const picture = document.querySelector("#topLeftPicture");
+
+    fetch("/api/home")
+    .then(res => res.json())
+    .then(data => {
+        heading.innerHTML = data.heading[1];
+    })
+}
+
 btnHam.addEventListener("click", function () {
   if (btnHam.className !== "") {
     btnHam.style.display = "none";
