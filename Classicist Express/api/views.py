@@ -14,7 +14,8 @@ def bdaffair(req):
         'heading': {},
         'news': {},
         'tags': {},
-        'picture': {}
+        'picture': {},
+        'link': {}
     }
     count = 1
     for i in news:
@@ -28,7 +29,8 @@ def cultural_insights(req):
         'heading': {},
         'news': {},
         'tags': {},
-        'picture': {}
+        'picture': {},
+        'link': {}
     }
     count = 1
     for i in news:
@@ -42,7 +44,8 @@ def sports_insights(req):
         'heading': {},
         'news': {},
         'tags': {},
-        'picture': {}
+        'picture': {},
+        'link': {}
     }
     count = 1
     for i in news:
@@ -56,7 +59,8 @@ def internatioal(req):
         'heading': {},
         'news': {},
         'tags': {},
-        'picture': {}
+        'picture': {},
+        'link': {}
     }
     count = 1
     for i in news:
@@ -70,7 +74,8 @@ def interviews(req):
         'heading': {},
         'news': {},
         'tags': {},
-        'picture': {}
+        'picture': {},
+        'link': {}
     }
     count = 1
     for i in news:
@@ -84,7 +89,8 @@ def cc(req):
         'heading': {},
         'news': {},
         'tags': {},
-        'picture': {}
+        'picture': {},
+        'link': {}
     }
     count = 1
     for i in news:
@@ -98,7 +104,8 @@ def youth(req):
         'heading': {},
         'news': {},
         'tags': {},
-        'picture': {}
+        'picture': {},
+        'link': {}
     }
     count = 1
     for i in news:
@@ -113,7 +120,8 @@ def district_insights(req):
         'heading': {},
         'news': {},
         'tags': {},
-        'picture': {}
+        'picture': {},
+        'link': {}
     }
     count = 1
     for i in news:
@@ -128,7 +136,8 @@ def comics(req):
         'heading': {},
         'news': {},
         'tags': {},
-        'picture': {}
+        'picture': {},
+        'link': {}
     }
     count = 1
     for i in news:
@@ -142,7 +151,8 @@ def trending(req):
         'heading': {},
         'news': {},
         'tags': {},
-        'picture': {}
+        'picture': {},
+        'link': {}
     }
     count = 1
     for i in news:
@@ -157,7 +167,8 @@ def diversed(req):
         'heading': {},
         'news': {},
         'tags': {},
-        'picture': {}
+        'picture': {},
+        'link': {}
     }
     count = 1
     for i in news:
