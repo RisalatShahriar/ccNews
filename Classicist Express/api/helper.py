@@ -3,8 +3,9 @@ def converter(lst):
     return res_dct
 
 
-def appender(lis, i):
-    lis.append(i.heading)
-    lis.append(i.news)
-    lis.append(i.tags)
-    lis.append(str(i.picture))
+def appender(send_api, i, n):
+    send_api['heading'][n] = i.heading
+    send_api['news'][n] = i.news
+    send_api['tags'][n] = i.tags
+    send_api['picture'][n] = str(i.picture)
+    return send_api

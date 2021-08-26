@@ -10,10 +10,17 @@ def home_data(req):
 
 def bdaffair(req):
     news = models.News.objects.filter(category='Bangladesh Affairs')
-    send_list_api = []
+    send_api = {
+        'heading': {},
+        'news': {},
+        'tags': {},
+        'picture': {}
+    }
+    count = 1
     for i in news:
-        helper.appender(send_list_api, i)
-    return HttpResponse(json.dumps(send_list_api))
+        helper.appender(send_api, i, count)
+        count += 1
+    return HttpResponse(json.dumps(send_api))
 
 def cultural_insights(req):
     pass
