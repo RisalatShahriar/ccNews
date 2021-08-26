@@ -9,169 +9,34 @@ def home_data(req):
     pass
 
 def bdaffair(req):
-    news = models.News.objects.filter(category='Bangladesh Affairs')
-    send_api = {
-        'heading': {},
-        'news': {},
-        'tags': {},
-        'picture': {},
-        'link': {}
-    }
-    count = 1
-    for i in news:
-        helper.appender(send_api, i, count)
-        count += 1
-    return HttpResponse(json.dumps(send_api))
+    return HttpResponse(helper.api_send(models.News.objects.filter(category='Bangladesh Affairs')))
 
 def cultural_insights(req):
-    news = models.News.objects.filter(category='Cultural Insights')
-    send_api = {
-        'heading': {},
-        'news': {},
-        'tags': {},
-        'picture': {},
-        'link': {}
-    }
-    count = 1
-    for i in news:
-        helper.appender(send_api, i, count)
-        count += 1
-    return HttpResponse(json.dumps(send_api))
+    return HttpResponse(helper.api_send(models.News.objects.filter(category='Cultural Insights')))
 
 def sports_insights(req):
-    news = models.News.objects.filter(category='Sports Insight')
-    send_api = {
-        'heading': {},
-        'news': {},
-        'tags': {},
-        'picture': {},
-        'link': {}
-    }
-    count = 1
-    for i in news:
-        helper.appender(send_api, i, count)
-        count += 1
-    return HttpResponse(json.dumps(send_api))
+    return HttpResponse(helper.api_send(models.News.objects.filter(category='Sports Insight')))
 
 def internatioal(req):
-    news = models.News.objects.filter(category='International Affairs')
-    send_api = {
-        'heading': {},
-        'news': {},
-        'tags': {},
-        'picture': {},
-        'link': {}
-    }
-    count = 1
-    for i in news:
-        helper.appender(send_api, i, count)
-        count += 1
-    return HttpResponse(json.dumps(send_api))
+    return HttpResponse(helper.api_send(models.News.objects.filter(category='International Affairs')))
 
 def interviews(req):
-    news = models.News.objects.filter(category='Small Talk With Gems')
-    send_api = {
-        'heading': {},
-        'news': {},
-        'tags': {},
-        'picture': {},
-        'link': {}
-    }
-    count = 1
-    for i in news:
-        helper.appender(send_api, i, count)
-        count += 1
-    return HttpResponse(json.dumps(send_api))
+    return HttpResponse(helper.api_send(models.News.objects.filter(category='Small Talk With Gems')))
 
 def cc(req):
-    news = models.News.objects.filter(category='Cultural Classicists')
-    send_api = {
-        'heading': {},
-        'news': {},
-        'tags': {},
-        'picture': {},
-        'link': {}
-    }
-    count = 1
-    for i in news:
-        helper.appender(send_api, i, count)
-        count += 1
-    return HttpResponse(json.dumps(send_api))
+    return HttpResponse(helper.api_send(models.News.objects.filter(category='Cultural Classicists')))
 
 def youth(req):
-    news = models.News.objects.filter(category='Youth')
-    send_api = {
-        'heading': {},
-        'news': {},
-        'tags': {},
-        'picture': {},
-        'link': {}
-    }
-    count = 1
-    for i in news:
-        helper.appender(send_api, i, count)
-        count += 1
-    return HttpResponse(json.dumps(send_api))
-
+    return HttpResponse(helper.api_send(models.News.objects.filter(category='Youth')))
 
 def district_insights(req):
-    news = models.News.objects.filter(category='District Insights')
-    send_api = {
-        'heading': {},
-        'news': {},
-        'tags': {},
-        'picture': {},
-        'link': {}
-    }
-    count = 1
-    for i in news:
-        helper.appender(send_api, i, count)
-        count += 1
-    return HttpResponse(json.dumps(send_api))
-
+    return HttpResponse(helper.api_send(models.News.objects.filter(category='District Insights')))
 
 def comics(req):
-    news = models.News.objects.filter(category='Comics')
-    send_api = {
-        'heading': {},
-        'news': {},
-        'tags': {},
-        'picture': {},
-        'link': {}
-    }
-    count = 1
-    for i in news:
-        helper.appender(send_api, i, count)
-        count += 1
-    return HttpResponse(json.dumps(send_api))
+    return HttpResponse(helper.api_send(models.News.objects.filter(category='Comics')))
 
 def trending(req):
-    news = models.News.objects.filter(category='Trending')
-    send_api = {
-        'heading': {},
-        'news': {},
-        'tags': {},
-        'picture': {},
-        'link': {}
-    }
-    count = 1
-    for i in news:
-        helper.appender(send_api, i, count)
-        count += 1
-    return HttpResponse(json.dumps(send_api))
-
+    return HttpResponse(helper(models.News.objects.filter(category='Trending')))
 
 def diversed(req):
-    news = models.News.objects.filter(category='Diversed')
-    send_api = {
-        'heading': {},
-        'news': {},
-        'tags': {},
-        'picture': {},
-        'link': {}
-    }
-    count = 1
-    for i in news:
-        helper.appender(send_api, i, count)
-        count += 1
-    return HttpResponse(json.dumps(send_api))
+    return HttpResponse(helper.api_send(models.News.objects.filter(category='Diversed')))

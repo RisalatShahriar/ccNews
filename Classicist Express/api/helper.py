@@ -1,6 +1,4 @@
-def converter(lst):
-    res_dct = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)}
-    return res_dct
+import json
 
 
 def appender(send_api, i, n):
@@ -10,3 +8,18 @@ def appender(send_api, i, n):
     send_api['picture'][n] = str(i.picture)
     send_api['link'][n] = i.id
     return send_api
+
+
+def api_send(news):
+    send_api = {
+        'heading': {},
+        'news': {},
+        'tags': {},
+        'picture': {},
+        'link': {}
+    }
+    count = 1
+    for i in news:
+        appender(send_api, i, count)
+        count += 1
+    return json.dumps(send_api)
