@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Classicist Express</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'base.css' %}" />
+    <link rel="icon" href="{% static 'images/logo.png' %}">
+
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/dbed6b6114.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- header -->
+
+    <header>
+        <div class = "navigation-container">
+            <div class = "top-head">
+            <div class = "web-name">
+              <div class = "ham-btn">
+                <span>
+                    <i class = "fas fa-bars"></i>
+                </span>
+            </div>
+
+            <div class = "times-btn">
+                <span>
+                    <i class = "fas fa-times"></i>
+                </span>
+              </div>
+            <div class="headline">
+              <div class="image">
+                <img src="{% static 'images/newslogo.png' %}" alt="">
+              </div>
+              <p id="datetime"></p>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+            <!-- nav bar -->
+
+            <div class = "nav-bar" id = "nav-bar">
+                <nav>
+                    <ul>
+                        <li><a href = "{% url 'home' %}">Home</a></li>
+                        <li><a href = "{% url 'bd' %}">Bangladesh Affairs</a></li>
+                        <li><a href = "{% url 'cultural' %}">Cultural insights</a></li>
+                        <li><a href = "{% url 'sports' %}">Sports insights</a></li>
+                        <li><a href = "{% url 'achievements' %}">Achievements</a></li>
+                        <li><a href = "{% url 'interview' %}">Small Talk with Gems</a></li>
+                        <li><a href = "{% url 'cc' %}">Cultural classicists</a></li>
+                        <li><a href = "{% url 'youth' %}">Youth</a></li>
+                        <li><a href = "{% url 'district' %}">district insights</a></li>
+                        <li><a href = "{% url 'comics' %}">comics</a></li>
+                        <li><a href = "{% url 'trending' %}">trending</a></li>
+                        <li><a href = "{% url 'diversed' %}">Diversed</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+
+
+        </div>
+      </header>
+{% block 'newsPortal' %}
+{% endblock %}
+     <footer>
+      <div class="footer-container">
+        <div class="footer-left">
+          <h2>Cultural Classicists</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
+            molestias aut blanditiis totam quia enim, autem tenetur cum facere,
+            fugit beatae at voluptas ipsum perferendis!
+          </p>
+        </div>
+
+      </div>
+
+
+    </footer>
+
+    <script src="{% static 'base.js' %}" async defer></script>
+  </body>
+</html>
