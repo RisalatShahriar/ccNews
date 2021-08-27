@@ -4,7 +4,7 @@ from django.shortcuts import render
 # Create your views here.
 def home(req):
     return render(req, 'home.html', {
-        'TITLE': 'Home | Classicist Express'
+        'TITLE': 'Classicist Express'
     })
 
 def bdaffair_page(req):
