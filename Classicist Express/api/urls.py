@@ -10,8 +10,8 @@ urlpatterns = [
     path('interview', views.interviews, name='interview_api'),
     path('cc', views.cc, name='cc_api'),
     path('youth', views.youth, name='youth_api'),
-    path('district', views.district_insights, name='District_api'),
-    path('comics', views.comics, name='Comics_api'),
+    path('district', views.district_insights, name='district_api'),
+    path('comics', views.comics, name='comics_api'),
     path('trending', views.trending, name='trending_api'),
     path('diversed', views.diversed, name='diversed_api')
 ]

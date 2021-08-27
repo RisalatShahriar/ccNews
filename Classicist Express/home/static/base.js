@@ -14,7 +14,7 @@ function topLeft() {
     const link = document.querySelector("#topLeftLink");
     const picture = document.querySelector("#topLeftPicture");
 
-    fetch("/api/home")
+    fetch(`/api/${document.querySelector("#api").value}`)
     .then(res => res.json())
     .then(data => {
         heading.innerHTML = data.heading[1];
