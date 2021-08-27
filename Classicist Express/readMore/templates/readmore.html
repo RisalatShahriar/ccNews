@@ -67,14 +67,13 @@
         <h1 class="headline">{{ HEADING }}</h1>
         <div class="image">
 
-          <img src="./images/mountain.jpg" alt="">
+          <img src="/media/{{ PIC }}" alt="">
         </div>
         <div class="content">
           <p>
               {{ NEWS }}
           </p>
         </div>
-      <a href="{% url 'home' %}" class="btn">Go to Home</a>
       </div>
     <script src="{% static 'readmore.js' %}"></script>
   </body>

@@ -18,7 +18,9 @@ function topLeft() {
     .then(res => res.json())
     .then(data => {
         heading.innerHTML = data.heading[1];
-        link.href = `/readmore/${data.link[1]}`
+        link.href = `/readmore/${data.link[1]}`;
+        news.innerHTML = data.news[1];
+        picture.src = `/media/${data.picture[1]}`;
     })
 }
 
