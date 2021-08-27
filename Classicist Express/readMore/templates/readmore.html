@@ -10,7 +10,7 @@
     <script
     src="https://kit.fontawesome.com/dbed6b6114.js"
     crossorigin="anonymous"
-  ></script>
+    ></script>
     <title>The Classicist Express</title>
 </head>
 <body>
@@ -46,23 +46,21 @@
             <div class = "nav-bar" id = "nav-bar">
                 <nav>
                     <ul>
-                        <li><a href = "#">Bangladesh Affairs</a></li>
-                        <li><a href = "#">Cultural insights</a></li>
-                        <li><a href = "#">Sports insights</a></li>
-                        <li><a href = "#">Achievements</a></li>
-                        <li><a href = "#">Small Talk with Gems</a></li>
-                        <li><a href = "#">Cultural classicists</a></li>
-                        <li><a href = "#">Youth</a></li>
-                        <li><a href = "#">district insights</a></li>
-                        <li><a href = "#">comics</a></li>
-                        <li><a href = "#">trending</a></li>
-                        <li><a href = "#">Diversed</a></li>
-
+                        <li><a href = "{% url 'home' %}">Home</a></li>
+                        <li><a href = "{% url 'bd' %}">Bangladesh Affairs</a></li>
+                        <li><a href = "{% url 'cultural' %}">Cultural insights</a></li>
+                        <li><a href = "{% url 'sports' %}">Sports insights</a></li>
+                        <li><a href = "{% url 'achievements' %}">Achievements</a></li>
+                        <li><a href = "{% url 'interview' %}">Small Talk with Gems</a></li>
+                        <li><a href = "{% url 'cc' %}">Cultural classicists</a></li>
+                        <li><a href = "{% url 'youth' %}">Youth</a></li>
+                        <li><a href = "{% url 'district' %}">district insights</a></li>
+                        <li><a href = "{% url 'comics' %}">comics</a></li>
+                        <li><a href = "{% url 'trending' %}">trending</a></li>
+                        <li><a href = "{% url 'diversed' %}">Diversed</a></li>
                     </ul>
                 </nav>
             </div>
-
-
         </div>
       </header>
       <div class="news">
