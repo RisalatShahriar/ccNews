@@ -24,6 +24,24 @@ function topLeft() {
     })
 }
 
+function bottomLeft() {
+    const div = document.querySelector(".container-bottom-left");
+    const article = document.createElement('article')
+    const heading = document.querySelector("#bottomLeftHeading");
+    const news = document.querySelector("#bottomLeftNews");
+    const link = document.querySelector("#bottomLeftLink");
+    const picture = document.querySelector("#bottomLeftPicture");
+
+    fetch(`/api/${document.querySelector("#api").value}`)
+    .then(res => res.json())
+    .then(data => {
+        heading.innerHTML = data.heading[2];
+        link.href = `/readmore/${data.link[2]}`;
+        news.innerHTML = data.front[2];
+        picture.src = `/media/${data.picture[2]}`;
+    })
+}
+
 btnHam.addEventListener("click", function () {
   if (btnHam.className !== "") {
     btnHam.style.display = "none";
@@ -50,3 +68,4 @@ function changeCss() {
 
 window.addEventListener("scroll", changeCss, false);
 topLeft()
+bottomLeft()
