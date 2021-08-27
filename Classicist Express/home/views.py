@@ -9,56 +9,55 @@ def home(req):
 
 def bdaffair_page(req):
     return render(req, 'bd.html', {
-        'TITLE': ' | Classicist Express'
+        'TITLE': 'Bangladesh | Classicist Express'
     })
 
 def cultural_insights_page(req):
     return render(req, 'cultural.html', {
-        'TITLE': ' | Classicist Express'
+        'TITLE': 'Cultural | Classicist Express'
     })
 
 def sports_insights_page(req):
     return render(req, 'sports.html', {
-        'TITLE': ' | Classicist Express'
+        'TITLE': 'Sports | Classicist Express'
     })
 
 def internatioal_page(req):
-    return render(req, '.html', {
-        'TITLE': ' | Classicist Express'
+    return render(req, 'international.html', {
+        'TITLE': 'International | Classicist Express'
     })
 
 def interviews_page(req):
     return render(req, 'interview.html', {
-        'TITLE': ' | Classicist Express'
+        'TITLE': 'Interview | Classicist Express'
     })
 
 def cc_page(req):
     return render(req, 'cc.html', {
-        'TITLE': ' | Classicist Express'
+        'TITLE': 'Cultural Classicist | Classicist Express'
     })
 
 def youth_page(req):
     return render(req, 'youth.html', {
-        'TITLE': ' | Classicist Express'
+        'TITLE': 'Youth | Classicist Express'
     })
 
 def district_insights_page(req):
     return render(req, 'district.html', {
-        'TITLE': ' | Classicist Express'
+        'TITLE': 'Dictrict | Classicist Express'
     })
 
 def comics_page(req):
     return render(req, 'comics.html', {
-        'TITLE': ' | Classicist Express'
+        'TITLE': 'Comics | Classicist Express'
     })
 
 def trending_page(req):
     return render(req, 'trending.html', {
-        'TITLE': ' | Classicist Express'
+        'TITLE': 'Trending | Classicist Express'
     })
 
 def diversed_page(req):
     return render(req, 'diversed.html', {
-        'TITLE': ' | Classicist Express'
+        'TITLE': 'Diversed | Classicist Express'
     })
-
