@@ -8,6 +8,8 @@ const date = document.getElementById('datetime');
 
 date.innerHTML = time;
 
+document.addEventListener('DOMContentLoaded', loadtContect())
+
 function topLeft() {
     const newsDiv = document.querySelector(".container-top-left");
     const article = document.createElement('article');
@@ -26,7 +28,7 @@ function topLeft() {
 
     fetch(`/api/${document.querySelector("#api").value}`)
     .then(res => res.json())
-    .then(data => {
+    .then(data => {      
         heading.innerHTML = data.heading[1];
         link.innerHTML = `Read More <span>>></span>`;
         link.href = `/readmore/${data.link[1]}`;
@@ -90,6 +92,22 @@ function right() {
     img.src = `/media/${data.picture[1]}`;
     just.innerHTML = "just in";
   })
+}
+
+function load () {
+  topLeft();
+  bottomLeft();
+  bottomLeft();
+  right();
+}
+
+function loadtContect() {
+  load()
+  window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      right();
+    }
+  }
 }
 
 btnHam.addEventListener("click", function () {
