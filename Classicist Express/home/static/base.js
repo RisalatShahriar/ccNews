@@ -9,18 +9,29 @@ const date = document.getElementById('datetime');
 date.innerHTML = time;
 
 function topLeft() {
-    const heading = document.querySelector("#topLeftHeading");
-    const news = document.querySelector("#topLeftNews");
-    const link = document.querySelector("#topLeftLink");
-    const picture = document.querySelector("#topLeftPicture");
+    const newsDiv = document.querySelector(".container-top-left");
+    const article = document.createElement('article');
+    const img = document.createElement('img');
+    const div = document.createElement('div');
+    const heading =document.createElement('h3');
+    const news = document.createElement('p');
+    const link = document.createElement('a');
+
+    newsDiv.append(article);
+    article.append(img);
+    article.append(div);
+    div.append(heading);
+    div.append(news);
+    div.append(link);
 
     fetch(`/api/${document.querySelector("#api").value}`)
     .then(res => res.json())
     .then(data => {
         heading.innerHTML = data.heading[1];
+        link.innerHTML = `Read More <span>>></span>`;
         link.href = `/readmore/${data.link[1]}`;
         news.innerHTML = data.front[1];
-        picture.src = `/media/${data.picture[1]}`;
+        img.src = `/media/${data.picture[1]}`;
     })
 }
 
@@ -51,6 +62,36 @@ function bottomLeft() {
     })
 }
 
+function right() {
+  const newsDiv = document.querySelector("#right");
+  const article = document.createElement('article');
+  const img = document.createElement('img');
+  const div = document.createElement('div');
+  const heading =document.createElement('h2');
+  const news = document.createElement('p');
+  const link = document.createElement('a');
+  const just = document.createElement('h4');
+
+  newsDiv.append(article);
+  article.append(just);
+  article.append(div);
+  div.append(heading);
+  div.append(news);
+  div.append(link);
+  article.append(img);
+
+  fetch(`/api/${document.querySelector("#api").value}`)
+  .then(res => res.json())
+  .then(data => {
+    heading.innerHTML = data.heading[1];
+    link.innerHTML = `Read More <span>>></span>`;
+    link.href = `/readmore/${data.link[1]}`;
+    news.innerHTML = data.front[1];
+    img.src = `/media/${data.picture[1]}`;
+    just.innerHTML = "just in";
+  })
+}
+
 btnHam.addEventListener("click", function () {
   if (btnHam.className !== "") {
     btnHam.style.display = "none";
@@ -76,5 +117,3 @@ function changeCss() {
 }
 
 window.addEventListener("scroll", changeCss, false);
-topLeft()
-bottomLeft()
