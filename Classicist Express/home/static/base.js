@@ -16,6 +16,7 @@ function topLeft() {
   fetch(`/api/${document.querySelector("#api").value}`)
   .then(res => res.json())
   .then(data => {
+  newsCount = Object.keys(data.heading).length
   if (currNews <= newsCount) {
     const newsDiv = document.querySelector(".container-top-left");
     const article = document.createElement('article');
@@ -31,7 +32,6 @@ function topLeft() {
     div.append(heading);
     div.append(news);
     div.append(link);
-    newsCount = Object.keys(data.heading).length
     heading.innerHTML = data.heading[1];
     link.innerHTML = `Read More <span>>></span>`;
     link.href = `/readmore/${data.link[1]}`;
