@@ -25,20 +25,29 @@ function topLeft() {
 }
 
 function bottomLeft() {
-    const div = document.querySelector(".container-bottom-left");
-    const article = document.createElement('article')
-    const heading = document.querySelector("#bottomLeftHeading");
-    const news = document.querySelector("#bottomLeftNews");
-    const link = document.querySelector("#bottomLeftLink");
-    const picture = document.querySelector("#bottomLeftPicture");
+    const newsDiv = document.querySelector(".container-bottom-left");
+    const article = document.createElement('article');
+    const img = document.createElement('img');
+    const div = document.createElement('div');
+    const heading =document.createElement('h3');
+    const news = document.createElement('p');
+    const link = document.createElement('a');
+
+    newsDiv.append(article);
+    article.append(img);
+    article.append(div);
+    div.append(heading);
+    div.append(news);
+    div.append(link);
 
     fetch(`/api/${document.querySelector("#api").value}`)
     .then(res => res.json())
     .then(data => {
-        heading.innerHTML = data.heading[2];
-        link.href = `/readmore/${data.link[2]}`;
-        news.innerHTML = data.front[2];
-        picture.src = `/media/${data.picture[2]}`;
+      heading.innerHTML = data.heading[1];
+      link.innerHTML = `Read More <span>>></span>`;
+      link.href = `/readmore/${data.link[1]}`;
+      news.innerHTML = data.front[1];
+      img.src = `/media/${data.picture[1]}`;
     })
 }
 
