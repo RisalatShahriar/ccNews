@@ -5,12 +5,18 @@ const btnHam = document.querySelector(".ham-btn");
 const btnTimes = document.querySelector(".times-btn");
 const navBar = document.getElementById("nav-bar");
 const date = document.getElementById('datetime');
+let newsCount = 0;
+let currNews = 1;
 
 date.innerHTML = time;
 
 document.addEventListener('DOMContentLoaded', loadtContect())
 
 function topLeft() {
+  fetch(`/api/${document.querySelector("#api").value}`)
+  .then(res => res.json())
+  .then(data => {
+  if (currNews <= newsCount) {
     const newsDiv = document.querySelector(".container-top-left");
     const article = document.createElement('article');
     const img = document.createElement('img');
@@ -25,19 +31,25 @@ function topLeft() {
     div.append(heading);
     div.append(news);
     div.append(link);
-
-    fetch(`/api/${document.querySelector("#api").value}`)
-    .then(res => res.json())
-    .then(data => {      
-        heading.innerHTML = data.heading[1];
-        link.innerHTML = `Read More <span>>></span>`;
-        link.href = `/readmore/${data.link[1]}`;
-        news.innerHTML = data.front[1];
-        img.src = `/media/${data.picture[1]}`;
-    })
+    newsCount = Object.keys(data.heading).length
+    heading.innerHTML = data.heading[1];
+    link.innerHTML = `Read More <span>>></span>`;
+    link.href = `/readmore/${data.link[1]}`;
+    news.innerHTML = data.front[1];
+    img.src = `/media/${data.picture[1]}`;
+    currNews++;
+  }
+  else {
+    return
+  }
+  })
 }
 
 function bottomLeft() {
+  fetch(`/api/${document.querySelector("#api").value}`)
+  .then(res => res.json())
+  .then(data => {
+  if (currNews <= newsCount){
     const newsDiv = document.querySelector(".container-bottom-left");
     const article = document.createElement('article');
     const img = document.createElement('img');
@@ -45,60 +57,69 @@ function bottomLeft() {
     const heading =document.createElement('h3');
     const news = document.createElement('p');
     const link = document.createElement('a');
-
     newsDiv.append(article);
     article.append(img);
     article.append(div);
     div.append(heading);
     div.append(news);
     div.append(link);
-
-    fetch(`/api/${document.querySelector("#api").value}`)
-    .then(res => res.json())
-    .then(data => {
-      heading.innerHTML = data.heading[1];
-      link.innerHTML = `Read More <span>>></span>`;
-      link.href = `/readmore/${data.link[1]}`;
-      news.innerHTML = data.front[1];
-      img.src = `/media/${data.picture[1]}`;
-    })
+    heading.innerHTML = data.heading[currNews];
+    link.innerHTML = `Read More <span>>></span>`;
+    link.href = `/readmore/${data.link[currNews]}`;
+    news.innerHTML = data.front[currNews];
+    img.src = `/media/${data.picture[currNews]}`;
+    currNews++
+  }
+  else {
+    return
+  }
+  })
 }
 
 function right() {
-  const newsDiv = document.querySelector("#right");
-  const article = document.createElement('article');
-  const img = document.createElement('img');
-  const div = document.createElement('div');
-  const heading =document.createElement('h2');
-  const news = document.createElement('p');
-  const link = document.createElement('a');
-  const just = document.createElement('h4');
-
-  newsDiv.append(article);
-  article.append(just);
-  article.append(div);
-  div.append(heading);
-  div.append(news);
-  div.append(link);
-  article.append(img);
-
   fetch(`/api/${document.querySelector("#api").value}`)
   .then(res => res.json())
   .then(data => {
-    heading.innerHTML = data.heading[1];
+  if (currNews <= newsCount) {
+    const newsDiv = document.querySelector("#right");
+    const article = document.createElement('article');
+    const img = document.createElement('img');
+    const div = document.createElement('div');
+    const heading =document.createElement('h2');
+    const news = document.createElement('p');
+    const link = document.createElement('a');
+    const just = document.createElement('h4');
+  
+    newsDiv.append(article);
+    article.append(just);
+    article.append(div);
+    div.append(heading);
+    div.append(news);
+    div.append(link);
+    article.append(img);
+  
+    heading.innerHTML = data.heading[currNews];
     link.innerHTML = `Read More <span>>></span>`;
-    link.href = `/readmore/${data.link[1]}`;
-    news.innerHTML = data.front[1];
-    img.src = `/media/${data.picture[1]}`;
+    link.href = `/readmore/${data.link[currNews]}`;
+    news.innerHTML = data.front[currNews];
+    img.src = `/media/${data.picture[currNews]}`;
     just.innerHTML = "just in";
+    currNews++
+  }
+  else {
+    return
+  }
   })
 }
 
 function load () {
   topLeft();
-  bottomLeft();
-  bottomLeft();
-  right();
+  for (var i = 0; i<2; i++) {
+    bottomLeft();
+  }
+  for (var i = 0; i<5; i++) {
+    right();
+  }
 }
 
 function loadtContect() {
