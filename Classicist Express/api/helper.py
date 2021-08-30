@@ -5,7 +5,6 @@ def appender(send_api, i, n):
     send_api['heading'][n] = i.heading
     send_api['front'][n] = str(i.news[:200]) + str("...")
     send_api['news'][n] = i.news
-    send_api['tags'][n] = i.tags
     send_api['picture'][n] = str(i.picture)
     send_api['link'][n] = i.id
     return send_api
@@ -16,7 +15,6 @@ def api_send(news):
         'heading': {},
         'news': {},
         'front': {},
-        'tags': {},
         'picture': {},
         'link': {}
     }

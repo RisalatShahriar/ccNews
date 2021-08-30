@@ -12,11 +12,16 @@ date.innerHTML = time;
 
 document.addEventListener('DOMContentLoaded', loadtContect())
 
+fetch(`/api/${document.querySelector("#api").value}`)
+.then(res => res.json())
+.then(data => {
+  newsCount = Object.keys(data.heading).length
+})
+
 function topLeft() {
   fetch(`/api/${document.querySelector("#api").value}`)
   .then(res => res.json())
   .then(data => {
-  newsCount = Object.keys(data.heading).length
   if (currNews <= newsCount) {
     const newsDiv = document.querySelector(".container-top-left");
     const article = document.createElement('article');
@@ -112,22 +117,51 @@ function right() {
   })
 }
 
-function load () {
-  topLeft();
-  for (var i = 0; i<2; i++) {
-    bottomLeft();
+function bottom() {
+  fetch(`/api/${document.querySelector("#api").value}`)
+  .then(res => res.json())
+  .then(data => {
+  if (currNews <= newsCount) {
+    const mainDiv = document.querySelector(".news");
+    const sec = document.querySelector(".main-container-left");
+    const newsDiv = document.querySelector(".container-bottom-left");
+    const article = document.createElement('article');
+    const img = document.createElement('img');
+    const div = document.createElement('div');
+    const heading =document.createElement('h2');
+    const news = document.createElement('p');
+    const link = document.createElement('a');
+  
+    mainDiv.append(sec);
+    sec.append(newsDiv);
+    newsDiv.append(article);
+    article.append(div);
+    div.append(heading);
+    div.append(news);
+    div.append(link);
+    article.append(img);
+  
+    heading.innerHTML = data.heading[currNews];
+    link.innerHTML = `Read More <span>>></span>`;
+    link.href = `/readmore/${data.link[currNews]}`;
+    news.innerHTML = data.front[currNews];
+    img.src = `/media/${data.picture[currNews]}`;
+    currNews++
   }
-  for (var i = 0; i<5; i++) {
-    right();
+  else {
+    return
   }
+  })
 }
 
+
 function loadtContect() {
-  load()
-  window.onscroll = function(ev) {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-      right();
-    }
+  for (var i = 0; i<7; i++) {
+    right()
+  }
+  topLeft()
+  for (var i = 0; i<2; i++) {
+    bottomLeft()
   }
 }
 
