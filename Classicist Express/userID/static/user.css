@@ -10,6 +10,12 @@
 body {
   background: #050505;
 }
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
 @media (max-width: 800px) {
   .profile {
     display: flex;
