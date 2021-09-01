@@ -23,3 +23,10 @@ def api_send(news):
         appender(send_api, i, count)
         count += 1
     return json.dumps(send_api)
+
+
+def api_send_top(news):
+    if len(news) >= 3:
+        api_send(news)
+    else:
+        return

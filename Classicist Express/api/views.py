@@ -36,43 +36,43 @@ def comics(req):
     return HttpResponse(helper.api_send(models.News.objects.filter(category='Comics')))
 
 def trending(req):
-    return HttpResponse(helper(models.News.objects.filter(category='Trending')))
+    return HttpResponse(helper.api_send(models.News.objects.filter(category='Trending')))
 
 def diversed(req):
     return HttpResponse(helper.api_send(models.News.objects.filter(category='Diversed')))
 
 def home_data_top(req):
-    return HttpResponse(helper.api_send(models.News.objects.all().order_by('click').reverse()[:3]))
+    return HttpResponse(helper.api_send(models.News.objects.all().order_by('click').reverse()))
 
 def bdaffair_top(req):
-    return HttpResponse(helper.api_send(models.News.objects.filter(category='Bangladesh Affairs').order_by('click').reverse[:3]))
+    return HttpResponse(helper.api_send_top(models.News.objects.filter(category='Bangladesh Affairs').order_by('click').reverse()))
 
 def cultural_insights_top(req):
-    return HttpResponse(helper.api_send(models.News.objects.filter(category='Cultural Insights').order_by('click').reverse()[:3]))
+    return HttpResponse(helper.api_send_top(models.News.objects.filter(category='Cultural Insights').order_by('click').reverse()))
 
 def sports_insights_top(req):
-    return HttpResponse(helper.api_send(models.News.objects.filter(category='Sports Insight').order_by('click').reverse()[:3]))
+    return HttpResponse(helper.api_send_top(models.News.objects.filter(category='Sports Insight').order_by('click').reverse()))
 
 def internatioal_top(req):
-    return HttpResponse(helper.api_send(models.News.objects.filter(category='International Affairs').order_by('click').reverse()[:3]))
+    return HttpResponse(helper.api_send_top(models.News.objects.filter(category='International Affairs').order_by('click').reverse()))
 
 def interviews_top(req):
-    return HttpResponse(helper.api_send(models.News.objects.filter(category='Small Talk With Gems').order_by('click').reverse()[:3]))
+    return HttpResponse(helper.api_send_top(models.News.objects.filter(category='Small Talk With Gems').order_by('click').reverse()))
 
 def cc_top(req):
-    return HttpResponse(helper.api_send(models.News.objects.filter(category='Cultural Classicists').order_by('click').reverse()[:3]))
+    return HttpResponse(helper.api_send_top(models.News.objects.filter(category='Cultural Classicists').order_by('click').reverse()))
 
 def youth_top(req):
-    return HttpResponse(helper.api_send(models.News.objects.filter(category='Youth').order_by('click').reverse()[:3]))
+    return HttpResponse(helper.api_send_top(models.News.objects.filter(category='Youth').order_by('click').reverse()))
 
 def district_insights_top(req):
-    return HttpResponse(helper.api_send(models.News.objects.filter(category='District Insights').order_by('click').reverse()[:3]))
+    return HttpResponse(helper.api_send_top(models.News.objects.filter(category='District Insights').order_by('click').reverse()))
 
 def comics_top(req):
-    return HttpResponse(helper.api_send(models.News.objects.filter(category='Comics').order_by('click').reverse()[:3]))
+    return HttpResponse(helper.api_send_top(models.News.objects.filter(category='Comics').order_by('click').reverse()))
 
 def trending_top(req):
-    return HttpResponse(helper(models.News.objects.filter(category='Trending').order_by('click').reverse()[:3]))
+    return HttpResponse(helper.api_send_top(models.News.objects.filter(category='Trending').order_by('click').reverse()))
 
 def diversed_top(req):
-    return HttpResponse(helper.api_send(models.News.objects.filter(category='Diversed').order_by('click').reverse()[:3]))
+    return HttpResponse(helper.api_send_top(models.News.objects.filter(category='Diversed').order_by('click').reverse()))

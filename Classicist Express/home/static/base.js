@@ -158,10 +158,12 @@ function bottom() {
 function loadtContect() {
   for (var i = 0; i<7; i++) {
     right()
+    i++
   }
   topLeft()
   for (var i = 0; i<2; i++) {
     bottomLeft()
+    i++
   }
 }
 
