@@ -7,10 +7,10 @@ const navBar = document.getElementById("nav-bar");
 const date = document.getElementById('datetime');
 let newsCount = 0;
 let currNews = 1;
+let newsCountTop = 0;
+let currNewsTop = 1;
 
 date.innerHTML = time;
-
-document.addEventListener('DOMContentLoaded', loadtContect())
 
 fetch(`/api/${document.querySelector("#api").value}`)
 .then(res => res.json())
@@ -18,11 +18,17 @@ fetch(`/api/${document.querySelector("#api").value}`)
   newsCount = Object.keys(data.heading).length
 })
 
+fetch(`/api/${document.querySelector("#api").value}/top`)
+.then(res => res.json())
+.then(data => {
+  newsCountTop = Object.keys(data.heading).length
+})
+
 function topLeft() {
-  fetch(`/api/${document.querySelector("#api").value}`)
+  fetch(`/api/${document.querySelector("#api").value}/top`)
   .then(res => res.json())
   .then(data => {
-  if (currNews <= newsCount) {
+  if (currNewsTop <= newsCountTop) {
     const newsDiv = document.querySelector(".container-top-left");
     const article = document.createElement('article');
     const img = document.createElement('img');
@@ -37,12 +43,12 @@ function topLeft() {
     div.append(heading);
     div.append(news);
     div.append(link);
-    heading.innerHTML = data.heading[1];
+    heading.innerHTML = data.heading[currNewsTop];
     link.innerHTML = `Read More <span>>></span>`;
-    link.href = `/readmore/${data.link[1]}`;
-    news.innerHTML = data.front[1];
-    img.src = `/media/${data.picture[1]}`;
-    currNews++;
+    link.href = `/readmore/${data.link[currNewsTop]}`;
+    news.innerHTML = data.front[currNewsTop];
+    img.src = `/media/${data.picture[currNewsTop]}`;
+    currNewsTop++;
   }
   else {
     return
@@ -51,10 +57,10 @@ function topLeft() {
 }
 
 function bottomLeft() {
-  fetch(`/api/${document.querySelector("#api").value}`)
+  fetch(`/api/${document.querySelector("#api").value}/top`)
   .then(res => res.json())
   .then(data => {
-  if (currNews <= newsCount){
+  if (currNewsTop <= newsCountTop){
     const newsDiv = document.querySelector(".container-bottom-left");
     const article = document.createElement('article');
     const img = document.createElement('img');
@@ -68,12 +74,12 @@ function bottomLeft() {
     div.append(heading);
     div.append(news);
     div.append(link);
-    heading.innerHTML = data.heading[currNews];
+    heading.innerHTML = data.heading[currNewsTop];
     link.innerHTML = `Read More <span>>></span>`;
-    link.href = `/readmore/${data.link[currNews]}`;
-    news.innerHTML = data.front[currNews];
-    img.src = `/media/${data.picture[currNews]}`;
-    currNews++
+    link.href = `/readmore/${data.link[currNewsTop]}`;
+    news.innerHTML = data.front[currNewsTop];
+    img.src = `/media/${data.picture[currNewsTop]}`;
+    currNewsTop++;
   }
   else {
     return
@@ -93,10 +99,8 @@ function right() {
     const heading =document.createElement('h2');
     const news = document.createElement('p');
     const link = document.createElement('a');
-    const just = document.createElement('h4');
   
     newsDiv.append(article);
-    article.append(just);
     article.append(div);
     div.append(heading);
     div.append(news);
@@ -108,7 +112,6 @@ function right() {
     link.href = `/readmore/${data.link[currNews]}`;
     news.innerHTML = data.front[currNews];
     img.src = `/media/${data.picture[currNews]}`;
-    just.innerHTML = "just in";
     currNews++
   }
   else {
@@ -154,19 +157,6 @@ function bottom() {
   })
 }
 
-
-function loadtContect() {
-  for (var i = 0; i<7; i++) {
-    right()
-    i++
-  }
-  topLeft()
-  for (var i = 0; i<2; i++) {
-    bottomLeft()
-    i++
-  }
-}
-
 btnHam.addEventListener("click", function () {
   if (btnHam.className !== "") {
     btnHam.style.display = "none";
@@ -191,4 +181,14 @@ function changeCss() {
     : navElement.classList.remove("sticky");
 }
 
+function load() {
+  topLeft()
+  bottomLeft()
+  bottomLeft()
+  for (var i = 0; i<7;i++){
+    right()
+  }
+}
+
 window.addEventListener("scroll", changeCss, false);
+document.addEventListener("DOMContentLoaded", load())
