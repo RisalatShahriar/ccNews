@@ -80,7 +80,18 @@
               {{ NEWS }}
           </p>
         </div>
-      </div>
+          
+         <!-- comment-box -->
+        <div class="comment-box">
+          <h2>Leave a Comment</h2>
+          <form action="" method="post">
+            <input type="text" name="fullName" placeholder="Full Name..." autocomplete="off">
+            <textarea name="comment" placeholder="Write Your Comment..." autocomplete="off"></textarea>
+            <button type="submit" class="btn">Comment</button>
+          </form>
+        </div>
+        <!-- comment-box -->
+    </div>
     <script src="{% static 'readmore.js' %}"></script>
   </body>
 </html>
