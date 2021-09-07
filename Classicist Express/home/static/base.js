@@ -1,161 +1,31 @@
 // jshint esversion: 6
-
-var time = new Date(Date.now()).toLocaleString().split(',')[0]
 const btnHam = document.querySelector(".ham-btn");
 const btnTimes = document.querySelector(".times-btn");
 const navBar = document.getElementById("nav-bar");
-const date = document.getElementById('datetime');
-let newsCount = 0;
-let currNews = 1;
-let newsCountTop = 0;
-let currNewsTop = 1;
-
-date.innerHTML = time;
-
-fetch(`/api/${document.querySelector("#api").value}`)
-.then(res => res.json())
-.then(data => {
-  newsCount = Object.keys(data.heading).length
-})
-
-fetch(`/api/${document.querySelector("#api").value}/top`)
-.then(res => res.json())
-.then(data => {
-  newsCountTop = Object.keys(data.heading).length
-})
 
 function topLeft() {
   fetch(`/api/${document.querySelector("#api").value}/top`)
   .then(res => res.json())
-  .then(data => {
-  if (currNewsTop <= newsCountTop) {
-    const newsDiv = document.querySelector(".container-top-left");
-    const article = document.createElement('article');
-    const img = document.createElement('img');
-    const div = document.createElement('div');
-    const heading =document.createElement('h3');
-    const news = document.createElement('p');
-    const link = document.createElement('a');
-
-    newsDiv.append(article);
-    article.append(img);
-    article.append(div);
-    div.append(heading);
-    div.append(news);
-    div.append(link);
-    heading.innerHTML = data.heading[currNewsTop];
-    link.innerHTML = `Read More <span>>></span>`;
-    link.href = `/readmore/${data.link[currNewsTop]}`;
-    news.innerHTML = data.front[currNewsTop];
-    img.src = `/media/${data.picture[currNewsTop]}`;
-    currNewsTop++;
-  }
-  else {
-    return
-  }
-  })
-}
+  .then(data => {})
+}//Top Stories
 
 function bottomLeft() {
   fetch(`/api/${document.querySelector("#api").value}/top`)
   .then(res => res.json())
-  .then(data => {
-  if (currNewsTop <= newsCountTop){
-    const newsDiv = document.querySelector(".container-bottom-left");
-    const article = document.createElement('article');
-    const img = document.createElement('img');
-    const div = document.createElement('div');
-    const heading =document.createElement('h3');
-    const news = document.createElement('p');
-    const link = document.createElement('a');
-    newsDiv.append(article);
-    article.append(img);
-    article.append(div);
-    div.append(heading);
-    div.append(news);
-    div.append(link);
-    heading.innerHTML = data.heading[currNewsTop];
-    link.innerHTML = `Read More <span>>></span>`;
-    link.href = `/readmore/${data.link[currNewsTop]}`;
-    news.innerHTML = data.front[currNewsTop];
-    img.src = `/media/${data.picture[currNewsTop]}`;
-    currNewsTop++;
-  }
-  else {
-    return
-  }
-  })
-}
+  .then(data => {})
+}//Top Stories bottom
 
 function right() {
   fetch(`/api/${document.querySelector("#api").value}`)
   .then(res => res.json())
-  .then(data => {
-  if (currNews <= newsCount) {
-    const newsDiv = document.querySelector("#right");
-    const article = document.createElement('article');
-    const img = document.createElement('img');
-    const div = document.createElement('div');
-    const heading =document.createElement('h2');
-    const news = document.createElement('p');
-    const link = document.createElement('a');
-  
-    newsDiv.append(article);
-    article.append(div);
-    div.append(heading);
-    div.append(news);
-    div.append(link);
-    article.append(img);
-  
-    heading.innerHTML = data.heading[currNews];
-    link.innerHTML = `Read More <span>>></span>`;
-    link.href = `/readmore/${data.link[currNews]}`;
-    news.innerHTML = data.front[currNews];
-    img.src = `/media/${data.picture[currNews]}`;
-    currNews++
-  }
-  else {
-    return
-  }
-  })
-}
+  .then(data => {})
+}//Latest Stories
 
 function bottom() {
   fetch(`/api/${document.querySelector("#api").value}`)
   .then(res => res.json())
-  .then(data => {
-  if (currNews <= newsCount) {
-    const mainDiv = document.querySelector(".news");
-    const sec = document.querySelector(".main-container-left");
-    const newsDiv = document.querySelector(".container-bottom-left");
-    const article = document.createElement('article');
-    const img = document.createElement('img');
-    const div = document.createElement('div');
-    const heading =document.createElement('h2');
-    const news = document.createElement('p');
-    const link = document.createElement('a');
-  
-    mainDiv.append(sec);
-    sec.append(newsDiv);
-    newsDiv.append(article);
-    article.append(div);
-    div.append(heading);
-    div.append(news);
-    div.append(link);
-    article.append(img);
-  
-    heading.innerHTML = data.heading[currNews];
-    link.innerHTML = `Read More <span>>></span>`;
-    link.href = `/readmore/${data.link[currNews]}`;
-    news.innerHTML = data.front[currNews];
-    img.src = `/media/${data.picture[currNews]}`;
-    currNews++
-  }
-  else {
-    return
-  }
-  })
-}
+  .then(data => {})
+}//News
 
 btnHam.addEventListener("click", function () {
   if (btnHam.className !== "") {
@@ -181,14 +51,4 @@ function changeCss() {
     : navElement.classList.remove("sticky");
 }
 
-function load() {
-  topLeft()
-  bottomLeft()
-  bottomLeft()
-  for (var i = 0; i<7;i++){
-    right()
-  }
-}
-
 window.addEventListener("scroll", changeCss, false);
-document.addEventListener("DOMContentLoaded", load())
