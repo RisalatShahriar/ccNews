@@ -48,6 +48,8 @@
         </div>
         {% for content in contents %}
         <div class="tab-panel">{{ content.heading }}</div>
+        {% empty %}
+        <div class="tab-panel">No notifications</div>
         {% endfor %}
         <div class="tab-panel"></div>
       </div>
