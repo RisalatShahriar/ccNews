@@ -46,7 +46,9 @@
             ></i>
           </form>
         </div>
-        <div class="tab-panel">No notifications</div>
+        {% for content in contents %}
+        <div class="tab-panel">{{ content.heading }}</div>
+        {% endfor %}
         <div class="tab-panel"></div>
       </div>
     </div>
