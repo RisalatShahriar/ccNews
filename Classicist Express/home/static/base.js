@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
     for (var i = 0; i<5; i++){
-      right()
+      bottom();
     }
   }
 })
@@ -106,27 +106,30 @@ function bottom() {
   fetch(`/api/${document.querySelector("#api").value}`)
   .then(res => res.json())
   .then(data => {
-    const newsDiv = document.querySelector("#right");
-    const article = document.createElement('article');
-    const img = document.createElement('img');
-    const div = document.createElement('div');
-    const heading =document.createElement('h2');
-    const news = document.createElement('p');
-    const link = document.createElement('a');
-  
-    newsDiv.append(article);
-    article.append(div);
-    div.append(heading);
-    div.append(news);
-    div.append(link);
-    article.append(img);
-  
-    heading.innerHTML = data.heading[currentNews];
-    link.innerHTML = `Read More <span>>></span>`;
-    link.href = `/readmore/${data.link[currentNews]}`;
-    news.innerHTML = data.front[currentNews];
-    img.src = `/media/${data.picture[currentNews]}`;
-    currentNews++
+    if (Object.keys(data.hading).length >= currentNews) {
+      const newsDiv = document.querySelector("#right");
+      const article = document.createElement('article');
+      const img = document.createElement('img');
+      const div = document.createElement('div');
+      const heading =document.createElement('h2');
+      const news = document.createElement('p');
+      const link = document.createElement('a');
+      newsDiv.append(article);
+      article.append(div);
+      div.append(heading);
+      div.append(news);
+      div.append(link);
+      article.append(img);
+      heading.innerHTML = data.heading[currentNews];
+      link.innerHTML = `Read More <span>>></span>`;
+      link.href = `/readmore/${data.link[currentNews]}`;
+      news.innerHTML = data.front[currentNews];
+      img.src = `/media/${data.picture[currentNews]}`;
+      currentNews++;
+    }
+    else {
+      return
+    }
   })
 }//News
 
