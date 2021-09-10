@@ -97,7 +97,7 @@ function right() {
       currentNews++;
     }
     else {
-      console.log("yo");
+      return;
     }
   })
 }//Latest Stories
