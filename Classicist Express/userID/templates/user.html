@@ -38,10 +38,11 @@
               ><i class="fas fa-newspaper"></i> Publish news</a
             >
           </button>
-          
+          {% if POST == 'Admin' %}
           <button onclick="showPanel(2)" class="btn">
-            <a href="#"><i class="fas fa-registered"></i> Registration</a>
+            <a href="{% url 'registration' %}"><i class="fas fa-registered"></i> Registration</a>
           </button>
+          {% endif %}
 
           <form action="{{ acc_url }}" class="logout" method="post">
             {% csrf_token %}
@@ -51,11 +52,13 @@
           </form>
         </div>
         {% for content in contents %}
-        <div class="tab-panel">{{ content.heading }}</div>
-        {% empty %}
         <div class="tab-panel">
+          {{ content.heading }}
           <button type="button" class="view-btn">View</button>
           <button type="button" class="delete-btn">Delete</button>
+        </div>
+        {% empty %}
+        No Notifications
         </div>
         {% endfor %}
         <div class="tab-panel"></div>

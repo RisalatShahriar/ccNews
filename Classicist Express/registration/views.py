@@ -17,8 +17,12 @@ def registration_page(req):
                 user_data = models.Data(accessID=req.POST['name'], email=req.POST['email'], number=req.POST['contact'], image=req.FILES.get('image'), post=req.POST.get('des'), address=req.POST['address'])
                 user_cred.save()
                 user_data.save()
-                return render(req, 'registration.html')
+                return render(req, 'registration.html', {
+                    'id': req.user
+                })
         else:
-            return render(req, 'registration.html')
+            return render(req, 'registration.html', {
+                'id': req.user
+            })
     else:
         return redirect('denied')
