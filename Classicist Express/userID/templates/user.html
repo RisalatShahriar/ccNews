@@ -38,6 +38,10 @@
               ><i class="fas fa-newspaper"></i> Publish news</a
             >
           </button>
+          
+          <button onclick="showPanel(2)" class="btn">
+            <a href="#"><i class="fas fa-registered"></i> Registration</a>
+          </button>
 
           <form action="{{ acc_url }}" class="logout" method="post">
             {% csrf_token %}
