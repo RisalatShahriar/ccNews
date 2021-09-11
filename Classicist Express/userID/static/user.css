@@ -204,3 +204,27 @@ a {
     color: #fff;
   }
 }
+
+.view-btn,
+.delete-btn {
+  padding: 10px 20px;
+  margin-right: 10px 0 0 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 2px;
+}
+
+.view-btn {
+  background-color: #ffca2b;
+  color: #000;
+}
+
+.delete-btn {
+  background-color: #bb2d3a;
+  color: #fff;
+}
+
+.view-btn:hover,
+.delete-btn:hover {
+  opacity: 0.8;
+}
