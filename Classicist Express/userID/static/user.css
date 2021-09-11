@@ -145,6 +145,8 @@ a {
   }
 
   .button-container {
+    display: flex;
+    align-items: center;
     margin: 20px 0;
   }
 
@@ -203,28 +205,48 @@ a {
   .logout:hover {
     color: #fff;
   }
-}
 
-.view-btn,
-.delete-btn {
-  padding: 10px 20px;
-  margin-right: 10px 0 0 20px;
-  font-size: 14px;
-  border: none;
-  border-radius: 2px;
-}
+  .view-btn,
+  .delete-btn {
+    padding: 10px 20px;
+    margin: 10px 20 10px 0;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+  }
 
-.view-btn {
-  background-color: #ffca2b;
-  color: #000;
-}
+  .view-btn {
+    background-color: #ffca2b;
+    color: #000;
+  }
 
-.delete-btn {
-  background-color: #bb2d3a;
-  color: #fff;
-}
+  .delete-btn {
+    background-color: #bb2d3a;
+    color: #fff;
+  }
 
-.view-btn:hover,
-.delete-btn:hover {
-  opacity: 0.8;
+  .view-btn:hover,
+  .delete-btn:hover {
+    opacity: 0.8;
+  }
+
+  .tab-panel {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  @media (max-width: 961px) {
+    .profile-img {
+      height: 200px;
+      width: 200px;
+      margin: 10px;
+    }
+
+    .button-container button,
+    .button-container form input {
+      font-size: 13px;
+    }
+  }
 }
