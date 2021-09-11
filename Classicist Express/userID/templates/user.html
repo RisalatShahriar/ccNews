@@ -53,7 +53,10 @@
         {% for content in contents %}
         <div class="tab-panel">{{ content.heading }}</div>
         {% empty %}
-        <div class="tab-panel">No notifications</div>
+        <div class="tab-panel">
+          <button type="button" class="view-btn">View</button>
+          <button type="button" class="delete-btn">Delete</button>
+        </div>
         {% endfor %}
         <div class="tab-panel"></div>
       </div>
