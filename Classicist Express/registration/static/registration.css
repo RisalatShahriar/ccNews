@@ -187,3 +187,38 @@ i {
   margin-right: 5px;
 }
 
+.upload {
+  cursor: pointer;
+}
+
+a {
+  font-size: 16px;
+  border: 1px solid #d6ae67;
+  border-radius: 2px;
+  padding: 15px 50px;
+  color: #d6ae67;
+}
+
+a::after {
+  content: "»";
+  position: absolute;
+
+  transition: 0.5s;
+  opacity: 0;
+}
+
+a:hover {
+  color: #d6ae67;
+  text-decoration-line: none;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+a:hover:after {
+  opacity: 1;
+  right: 570px;
+}
+
+.home-btn {
+  margin-top: 20px;
+}
+
