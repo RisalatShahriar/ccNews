@@ -22,3 +22,7 @@ const showPanel = (i) => {
 if (mq.matches) {
   showPanel(0);
 }
+
+function toggle() {
+  document.querySelector(".user-details").classList.toggle("toggle");
+}
