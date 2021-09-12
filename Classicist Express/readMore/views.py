@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from publish import models
+from datetime import date
+
+today = date.today().strftime("%B %d, %Y")
 
 # Create your views here.
 def readMore_page(req, link):
@@ -10,5 +13,6 @@ def readMore_page(req, link):
         'HEADING': news.heading,
         'NEWS': news.news,
         'PIC': news.picture,
-        "NAME": news.name
+        "NAME": news.name,
+        'time': today
     })
