@@ -28,40 +28,53 @@
         </div>
       </div>
       <div class="tab-container">
+       
         <div class="button-container">
           <button onclick="showPanel(0)" class="btn">
-            <i class="far fa-bell"></i>Tasks
+            <i class="far fa-bell"></i>
+            <span class="btn-name">Tasks</span>
           </button>
 
           <button onclick="showPanel(1)" class="btn">
-            <a href="{% url 'publish' %}"
-              ><i class="fas fa-newspaper"></i> Publish news</a
-            >
+            <i class="fas fa-user"></i>
+            <a href="#" class="btn-name">Users</a>
           </button>
-          {% if POST == 'Admin' %}
+
           <button onclick="showPanel(2)" class="btn">
-            <a href="{% url 'registration' %}"><i class="fas fa-registered"></i> Registration</a>
+            <i class="fas fa-newspaper"></i>
+            <a href="{% url 'publish' %}" class="btn-name"> Publish news</a>
           </button>
-          {% endif %}
+
+           {% if POST == 'Admin' %}
+          <button onclick="showPanel(3)" class="btn">
+            <i class="fas fa-registered"></i>
+            <a href="{% url 'registration' %}" class="btn-name">Registration</a>
+          </button>
+           {% endif %}
 
           <form action="{{ acc_url }}" class="logout" method="post">
             {% csrf_token %}
-            <input type="hidden" name="_method" value="logout">
+            <input type="hidden" name="_method" value="logout" />
             <input type="submit" class="btn" value="Logout" class="logout" /><i
               class="fas fa-sign-out-alt logout"
             ></i>
           </form>
         </div>
+        
+        
+        
         {% if POST == 'Admin' %}
         <div class="tab-panel">
           {% for content in contents %}
           {{ content.heading }}
-          <button type="button" class="view-btn"><a href="/readmore/{{ content.id }}">View</a></button>
+          <div class="side-buttons">
+          <button type="button" class="view-btn" id="view" onclick="toggle()"><a href="/readmore/{{ content.id }}">View</a></button>
           <form action="{{ acc_url }}" method="post"> {% csrf_token %}
             <input type="hidden" name="_method" value="delete">
             <input type="hidden" name="_content" value="{{ content.id }}">
             <input type="submit" class="delete-btn" value="Delete">
           </form>
+          </div>
 
           {% empty %}
           No Notifications
@@ -69,7 +82,36 @@
         </div>
         {% endif %}
 
-        <div class="tab-panel"></div>
+       
+         <!--user tab panel -->
+         <div class="tab-panel">
+          <div class="side-buttons">
+            <button type="button" class="view-btn" id="view" onclick="toggle()">
+              <a href="#">View</a>
+            </button>
+            <form action="{{ acc_url }}" method="post">
+              <input type="hidden" name="_method" value="delete" />
+              <input type="hidden" name="_content" value="{{ content.id }}" />
+              <input type="submit" class="delete-btn" value="Delete" />
+            </form>
+          </div>
+          <div class="user-details">
+            <div class="user-img">
+              <img src="images/profile.png" alt="Image not found" />
+            </div>
+            <div class="user-info">
+              <div>
+                <h2>Name</h2>
+                <h4>Post</h4>
+              </div>
+              <div>
+                <p>abc@123.com</p>
+                <p>049-940-9033</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
     <script src="{% static 'user.js' %}"></script>
