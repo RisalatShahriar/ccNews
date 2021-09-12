@@ -5,8 +5,13 @@ const navBar = document.getElementById("nav-bar");
 let currentNews = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
+  topLeft();
+  bottomLeft();
   for (var i = 0; i<5; i++){
-    right()
+    right();
+  }
+  for (var i = 0; i<5; i++){
+    bottom();
   }
   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
     for (var i = 0; i<5; i++){
@@ -19,7 +24,7 @@ function topLeft() {
   fetch(`/api/${document.querySelector("#api").value}/top`)
   .then(res => res.json())
   .then(data => {
-    if (Object.keys(data.heading).lenght > 1) {
+    if (Object.keys(data.heading).length > 2) {
       const newsDiv = document.querySelector(".container-top-left");
       const article = document.createElement('article');
       const img = document.createElement('img');
@@ -46,25 +51,27 @@ function bottomLeft() {
   fetch(`/api/${document.querySelector("#api").value}/top`)
   .then(res => res.json())
   .then(data => {
-    for (var i = 0; i<2; i++){
-      const newsDiv = document.querySelector(".container-bottom-left");
-      const article = document.createElement('article');
-      const img = document.createElement('img');
-      const div = document.createElement('div');
-      const heading =document.createElement('h3');
-      const news = document.createElement('p');
-      const link = document.createElement('a');
-      newsDiv.append(article);
-      article.append(img);
-      article.append(div);
-      div.append(heading);
-      div.append(news);
-      div.append(link);
-      heading.innerHTML = data.heading[i+2];
-      link.innerHTML = `Read More <span>>></span>`;
-      link.href = `/readmore/${data.link[i+2]}`;
-      news.innerHTML = data.front[i+2];
-      img.src = `/media/${data.picture[i+2]}`;
+    if (Object.keys(data.heading).length > 2) {
+      for (var i = 0; i<2; i++){
+        const newsDiv = document.querySelector(".container-bottom-left");
+        const article = document.createElement('article');
+        const img = document.createElement('img');
+        const div = document.createElement('div');
+        const heading =document.createElement('h3');
+        const news = document.createElement('p');
+        const link = document.createElement('a');
+        newsDiv.append(article);
+        article.append(img);
+        article.append(div);
+        div.append(heading);
+        div.append(news);
+        div.append(link);
+        heading.innerHTML = data.heading[i+2];
+        link.innerHTML = `Read More <span>>></span>`;
+        link.href = `/readmore/${data.link[i+2]}`;
+        news.innerHTML = data.front[i+2];
+        img.src = `/media/${data.picture[i+2]}`;
+      }
     }
   })
 }//Top Stories bottom
@@ -106,20 +113,20 @@ function bottom() {
   fetch(`/api/${document.querySelector("#api").value}`)
   .then(res => res.json())
   .then(data => {
-    if (Object.keys(data.hading).length >= currentNews) {
-      const newsDiv = document.querySelector("#right");
+    if (Object.keys(data.heading).length >= currentNews) {
+      const newsDiv = document.querySelector("#bottom");
       const article = document.createElement('article');
       const img = document.createElement('img');
       const div = document.createElement('div');
-      const heading =document.createElement('h2');
+      const heading =document.createElement('h3');
       const news = document.createElement('p');
       const link = document.createElement('a');
       newsDiv.append(article);
       article.append(div);
+      div.append(img);
       div.append(heading);
       div.append(news);
       div.append(link);
-      article.append(img);
       heading.innerHTML = data.heading[currentNews];
       link.innerHTML = `Read More <span>>></span>`;
       link.href = `/readmore/${data.link[currentNews]}`;

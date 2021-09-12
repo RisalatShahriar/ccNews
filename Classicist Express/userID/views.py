@@ -1,14 +1,16 @@
+from userID.delete import delete_data
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from registration import models
 from django.contrib.auth import logout
 from publish import models as news_models
+from . import delete
 
 
 def userID_home(req, ID):
     if req.method == "POST":
         if req.POST['_method'] == 'delete':
             delete_news = news_models.News.objects.get(id=req.POST['_content'])
+            delete.delete_data(str(f'media/{delete_news.picture}'))
             delete_news.delete()
         else:
             logout(req)
