@@ -32,7 +32,7 @@
         <label class="input-group-text" for="inputGroupSelect01"
           >Category</label
         >
-        <select class="form-select" id="inputGroupSelect01" name="cat">
+        <select class="form-select" id="inputGroupSelect01" name="cat" required>
           <option selected>Choose...</option>
           <option value="Bangladesh Affairs">Bangladesh Affairs</option>
           <option value="Cultural Insights">Cultural Insights</option>
@@ -54,14 +54,14 @@
           <span class="input-group-text" id="basic-addon1"
             ><i class="fas fa-images"></i
           ></span>
-          <input type="file" class="form-control" id="myFile" name="picnews" />
+          <input type="file" class="form-control" id="myFile" name="picnews" required />
         </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1"
           ><i class="fas fa-heading"></i
         ></span>
-        <input type="text" class="form-control" placeholder="Heading" name="heading" />
+        <input type="text" class="form-control" placeholder="Heading" name="heading" required />
       </div>
           
         <!--  bold and italic button -->         
@@ -71,14 +71,14 @@
           
       <div class="input-group textarea">
         <span class="input-group-text">Body</span>
-        <textarea class="form-control" aria-label="With textarea" name="news"></textarea>
+        <textarea class="form-control" aria-label="With textarea" name="news" required></textarea>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1"
           ><i class="fas fa-signature"></i
         ></span>
-        <input type="text" class="form-control" placeholder="Name" name="name" />
+        <input type="text" class="form-control" placeholder="Name" name="name" required />
       </div>
 
      <input type="submit" class="btn btn-dark btn-lg" value="PUBLISH" />
