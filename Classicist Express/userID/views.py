@@ -7,7 +7,11 @@ from publish import models as news_models
 
 def userID_home(req, ID):
     if req.method == "POST":
-        logout(req)
+        if req.POST['_method'] == 'delete':
+            delete_news = news_models.News.objects.get(id=req.POST['_content'])
+            delete_news.delete()
+        else:
+            logout(req)
         return redirect('login')
     elif req.user.is_authenticated and str(req.user) == ID:
         user_info = models.Data.objects.get(accessID=ID)

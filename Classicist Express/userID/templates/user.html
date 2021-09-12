@@ -46,21 +46,29 @@
 
           <form action="{{ acc_url }}" class="logout" method="post">
             {% csrf_token %}
+            <input type="hidden" name="_method" value="logout">
             <input type="submit" class="btn" value="Logout" class="logout" /><i
               class="fas fa-sign-out-alt logout"
             ></i>
           </form>
         </div>
-        {% for content in contents %}
+        {% if POST == 'Admin' %}
         <div class="tab-panel">
+          {% for content in contents %}
           {{ content.heading }}
-          <button type="button" class="view-btn">View</button>
-          <button type="button" class="delete-btn">Delete</button>
+          <button type="button" class="view-btn"><a href="/readmore/{{ content.id }}">View</a></button>
+          <form action="{{ acc_url }}" method="post"> {% csrf_token %}
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="_content" value="{{ content.id }}">
+            <input type="submit" class="delete-btn" value="Delete">
+          </form>
+
+          {% empty %}
+          No Notifications
+          {% endfor %}
         </div>
-        {% empty %}
-        No Notifications
-        </div>
-        {% endfor %}
+        {% endif %}
+
         <div class="tab-panel"></div>
       </div>
     </div>
