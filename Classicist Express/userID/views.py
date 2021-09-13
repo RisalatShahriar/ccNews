@@ -12,6 +12,10 @@ def userID_home(req, ID):
             delete_news = news_models.News.objects.get(id=req.POST['_content'])
             delete.delete_data(str(f'media/{delete_news.picture}'))
             delete_news.delete()
+        elif req.POST['_method'] == 'user':
+            delete_user = models.Data.objects.get(accessID=req.POST['_content'])
+            delete.delete_data(str(f'media/{delete_user.image}'))
+            delete_user.delete()
         else:
             logout(req)
         return redirect('login')
