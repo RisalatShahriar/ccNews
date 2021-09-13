@@ -88,7 +88,7 @@
         {% for user in users %}
         {% if user.accessID != ID %}
          <div class="tab-panel">
-           <h3>{{ user.accessID }}</h3>
+        
           <div class="side-buttons">
             <button type="button" class="view-btn" id="view" onclick="toggle()">
               <a href="#">View</a>
@@ -99,8 +99,14 @@
               <input type="submit" class="delete-btn" value="Delete" />
             </form>
           </div>
-          <div class="user-details">
-            <div class="user-img">
+             <div class="user-details">
+               <div  class="single-user">
+            <div class="heading">
+              <h3>{{ user.accessID }} <i class="fas fa-chevron-down"></i></h3>
+            </div>
+            <div class="expand">
+              
+              <div class="user-img">
               <img src="/media/{{ user.image }}" alt="Image not found" />
             </div>
             <div class="user-info">
@@ -113,6 +119,10 @@
                 <p>{{ user.number }}</p>
               </div>
             </div>
+            </div>
+           </div>
+          
+            
           </div>
          </div>
         {% endif %}
