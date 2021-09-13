@@ -37,7 +37,7 @@
 
           <button onclick="showPanel(1)" class="btn">
             <i class="fas fa-user"></i>
-            <a href="#" class="btn-name">Users</a>
+            <a href="#" class="btn-name">Manage Users</a>
           </button>
 
           <button onclick="showPanel(2)" class="btn">
@@ -84,33 +84,40 @@
 
        
          <!--user tab panel -->
+        {% if POST == 'Admin' %}
+        {% for user in users %}
+        {% if user.accessID != ID %}
          <div class="tab-panel">
+           <h3>{{ user.accessID }}</h3>
           <div class="side-buttons">
             <button type="button" class="view-btn" id="view" onclick="toggle()">
               <a href="#">View</a>
             </button>
-            <form action="{{ acc_url }}" method="post">
-              <input type="hidden" name="_method" value="delete" />
+            <form action="{{ acc_url }}" method="post">{% csrf_token %}
+              <input type="hidden" name="_method" value="user" />
               <input type="hidden" name="_content" value="{{ content.id }}" />
               <input type="submit" class="delete-btn" value="Delete" />
             </form>
           </div>
           <div class="user-details">
             <div class="user-img">
-              <img src="images/profile.png" alt="Image not found" />
+              <img src="/media/{{ user.image }}" alt="Image not found" />
             </div>
             <div class="user-info">
               <div>
-                <h2>Name</h2>
-                <h4>Post</h4>
+                <h2>{{ user.accessID }}</h2>
+                <h4>{{ user.post }}</h4>
               </div>
               <div>
-                <p>abc@123.com</p>
-                <p>049-940-9033</p>
+                <p>{{ user.email }}</p>
+                <p>{{ user.number }}</p>
               </div>
             </div>
           </div>
         </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
         
       </div>
     </div>

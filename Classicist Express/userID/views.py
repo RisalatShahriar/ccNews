@@ -17,6 +17,7 @@ def userID_home(req, ID):
         return redirect('login')
     elif req.user.is_authenticated and str(req.user) == ID:
         user_info = models.Data.objects.get(accessID=ID)
+        all_user = models.Data.objects.all()
         notifications = news_models.News.objects.all()
         post = user_info.post
         pic = user_info.image
@@ -26,7 +27,8 @@ def userID_home(req, ID):
             "POST": post,
             "PROFILE": pic,
             "acc_url": url,
-            "contents": notifications
+            "contents": notifications,
+            "users": all_user
         })
     else:
         return redirect('denied')
