@@ -4,25 +4,30 @@ let tabButtons = document.querySelectorAll(
 
 let tabPanels = document.querySelectorAll(".tab-container .tab-panel");
 
-let mq = window.matchMedia("(min-width: 800px)");
+let mq1 = window.matchMedia("(min-width: 802px)");
 
 const showPanel = (i) => {
-  if (mq.matches) {
-    tabButtons.forEach((node) => {
-      node.style.borderBottom = "none";
-    });
+  tabButtons.forEach((node) => {
+    node.style.borderBottom = "none";
+  });
+  if (mq1.matches) {
     tabButtons[i].style.borderBottom = "2px solid #d7ae66";
-    tabPanels.forEach((node) => {
-      node.style.display = "none";
-    });
-
-    tabPanels[i].style.display = "block";
   }
+
+  tabPanels.forEach((node) => {
+    node.style.display = "none";
+  });
+
+  tabPanels[i].style.display = "block";
 };
-if (mq.matches) {
+if (mq1.matches) {
   showPanel(0);
 }
 
 function toggle() {
   document.querySelector(".user-details").classList.toggle("toggle");
 }
+
+document.querySelector(".heading").addEventListener("click", function () {
+  document.querySelector(".single-user").classList.toggle("expand");
+});
