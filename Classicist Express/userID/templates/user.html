@@ -12,7 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href=" {% static 'user.css' %}" />
+    <link rel="stylesheet" href="{% static 'user.css' %}" />
 
     <link rel="icon" href="{% static 'images/logo.png' %}" />
     <title>{{ ID }} | Cultural Classist</title>
@@ -64,23 +64,38 @@
         {% if POST == 'Admin' %}
         <div class="tab-panel">
           {% for content in contents %} {{ content.heading }}
-          <div class="side-buttons">
-            <button type="button" class="view-btn" id="view" onclick="toggle()">
-              <a href="/readmore/{{ content.id }}">View</a>
-            </button>
-            <form action="{{ acc_url }}" method="post">
-              {% csrf_token %}
-              <input type="hidden" name="_method" value="delete" />
-              <input type="hidden" name="_content" value="{{ content.id }}" />
-              <input type="submit" class="delete-btn" value="Delete" />
-            </form>
+          <div class="tasks">
+            <div class="heading">
+              <h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
+                quia eum atque harum corrupti distinctio esse, ad nemo!
+              </h3>
+              <div class="side-buttons">
+                <button type="button" class="approve">
+                  <a href="#">Approve</a>
+                </button>
+                <button type="button" class="tasks-view">
+                  <a href="#">View</a>
+                </button>
+                <form action="{{ acc_url }}#" method="post">
+                  {% csrf_token %}
+                  <input type="hidden" name="_method" value="user" />
+                  <input
+                    type="hidden"
+                    name="_content"
+                    value="{{ user.accessID }}"
+                  />
+                  <input type="submit" class="delete" value="Delete" />
+                </form>
+              </div>
+            </div>
           </div>
 
           {% empty %} No Notifications {% endfor %}
         </div>
         {% endif %}
 
-        <!--user tab panel -->
+        <!-- user tab panel -->
         {% if POST == 'Admin' %}
         <div class="tab-panel">
           <div class="user-details">
@@ -128,6 +143,7 @@
         {% endif %}
       </div>
     </div>
-    <script src=" {% static 'user.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'user.js' %}"></script>
   </body>
 </html>
