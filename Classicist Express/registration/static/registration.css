@@ -38,6 +38,22 @@ html {
   padding-bottom: 20px;
 }
 
+@media (max-width: 550px) {
+  .registration .title {
+    font-size: 2.9rem;
+  }
+}
+
+.add-image {
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.add-image::-webkit-scrollbar {
+  display: none;
+}
+
 .input-div {
   position: relative;
   margin: 25px 10px;
@@ -168,6 +184,7 @@ html {
   font-size: 16px;
   margin: 20px 10px;
 }
+
 h4 {
   color: red;
   margin-left: 15px;
@@ -221,4 +238,3 @@ a:hover:after {
 .home-btn {
   margin-top: 20px;
 }
-
