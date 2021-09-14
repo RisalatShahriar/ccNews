@@ -12,8 +12,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="{% static 'user.css' %}" />
-    <link rel="icon" href="{% static 'images/logo.png' %}">
+    <link rel="stylesheet" href=" {% static 'user.css' %}" />
+
+    <link rel="icon" href="{% static 'images/logo.png' %}" />
     <title>{{ ID }} | Cultural Classist</title>
   </head>
   <body>
@@ -28,7 +29,6 @@
         </div>
       </div>
       <div class="tab-container">
-       
         <div class="button-container">
           <button onclick="showPanel(0)" class="btn">
             <i class="far fa-bell"></i>
@@ -45,12 +45,12 @@
             <a href="{% url 'publish' %}" class="btn-name"> Publish news</a>
           </button>
 
-           {% if POST == 'Admin' %}
+          {% if POST == 'Admin' %}
           <button onclick="showPanel(3)" class="btn">
             <i class="fas fa-registered"></i>
             <a href="{% url 'registration' %}" class="btn-name">Registration</a>
           </button>
-           {% endif %}
+          {% endif %}
 
           <form action="{{ acc_url }}" class="logout" method="post">
             {% csrf_token %}
@@ -60,77 +60,71 @@
             ></i>
           </form>
         </div>
-        
-        
-        
+
         {% if POST == 'Admin' %}
         <div class="tab-panel">
-          {% for content in contents %}
-          {{ content.heading }}
-          <div class="side-buttons">
-          <button type="button" class="view-btn" id="view" onclick="toggle()"><a href="/readmore/{{ content.id }}">View</a></button>
-          <form action="{{ acc_url }}" method="post"> {% csrf_token %}
-            <input type="hidden" name="_method" value="delete">
-            <input type="hidden" name="_content" value="{{ content.id }}">
-            <input type="submit" class="delete-btn" value="Delete">
-          </form>
-          </div>
-
-          {% empty %}
-          No Notifications
-          {% endfor %}
-        </div>
-        {% endif %}
-
-       
-         <!--user tab panel -->
-        {% if POST == 'Admin' %}
-        {% for user in users %}
-        {% if user.accessID != ID %}
-         <div class="tab-panel">
-        
+          {% for content in contents %} {{ content.heading }}
           <div class="side-buttons">
             <button type="button" class="view-btn" id="view" onclick="toggle()">
-              <a href="#">View</a>
+              <a href="/readmore/{{ content.id }}">View</a>
             </button>
-            <form action="{{ acc_url }}#" method="post">{% csrf_token %}
-              <input type="hidden" name="_method" value="user" />
-              <input type="hidden" name="_content" value="{{ user.accessID }}" />
+            <form action="{{ acc_url }}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="_method" value="delete" />
+              <input type="hidden" name="_content" value="{{ content.id }}" />
               <input type="submit" class="delete-btn" value="Delete" />
             </form>
           </div>
-             <div class="user-details">
-               <div  class="single-user">
-            <div class="heading">
-              <h3>{{ user.accessID }} <i class="fas fa-chevron-down"></i></h3>
-            </div>
-            <div class="expand">
-              
-              <div class="user-img">
-              <img src="/media/{{ user.image }}" alt="Image not found" />
-            </div>
-            <div class="user-info">
-              <div>
-                <h2>{{ user.accessID }}</h2>
-                <h4>{{ user.post }}</h4>
+
+          {% empty %} No Notifications {% endfor %}
+        </div>
+        {% endif %}
+
+        <!--user tab panel -->
+        {% if POST == 'Admin' %} {% for user in users %} {% if user.accessID !=
+        ID %}
+        <div class="tab-panel">
+          <div class="user-details">
+            <div class="single-user">
+              <div class="heading">
+                <h3>{{ user.accessID }}</h3>
+                <div class="side-buttons">
+                  <button type="button" class="view" id="view">
+                    <a href="#">View</a>
+                  </button>
+                  <form action="{{ acc_url }}#" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="_method" value="user" />
+                    <input
+                      type="hidden"
+                      name="_content"
+                      value="{{ user.accessID }}"
+                    />
+                    <input type="submit" class="delete" value="Delete" />
+                  </form>
+                </div>
               </div>
-              <div>
-                <p>{{ user.email }}</p>
-                <p>{{ user.number }}</p>
+              <div class="expand">
+                <div class="user-img">
+                  <img src="/media/{{ user.image }}" alt="Image not found" />
+                </div>
+                <div class="user-info">
+                  <div>
+                    <h2>{{ user.accessID }}</h2>
+                    <h4>{{ user.post }}</h4>
+                  </div>
+                  <div>
+                    <p>{{ user.email }}</p>
+                    <p>{{ user.number }}</p>
+                  </div>
+                </div>
               </div>
             </div>
-            </div>
-           </div>
-          
-            
           </div>
-         </div>
-        {% endif %}
-        {% endfor %}
-        {% endif %}
-        
+        </div>
+        {% endif %} {% endfor %} {% endif %}
       </div>
     </div>
-    <script src="{% static 'user.js' %}"></script>
+    <script src=" {% static 'user.js' %}"></script>
   </body>
 </html>
