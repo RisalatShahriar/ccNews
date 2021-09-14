@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from registration import models
 from django.contrib.auth import logout
 from publish import models as news_models
+from django.contrib.auth.models import User
 from . import delete
 
 
@@ -14,8 +15,10 @@ def userID_home(req, ID):
             delete_news.delete()
         elif req.POST['_method'] == 'user':
             delete_user = models.Data.objects.get(accessID=req.POST['_content'])
+            delete_auth = User.objects.get(username=req.POST['_content'])
             delete.delete_data(str(f'media/{delete_user.image}'))
             delete_user.delete()
+            delete_auth.delete()
         else:
             logout(req)
         return redirect('login')

@@ -21,7 +21,7 @@
     <div class="container">
       <div class="profile">
         <div class="profile-img">
-          <img src="/media/{{ PROFILE }}" alt="Image not found" />
+          <img src="/media/{{ PROFILE }}" alt="" />
         </div>
         <div class="profile-info">
           <h3>{{ ID }}</h3>
@@ -81,10 +81,11 @@
         {% endif %}
 
         <!--user tab panel -->
-        {% if POST == 'Admin' %} {% for user in users %} {% if user.accessID !=
-        ID %}
+        {% if POST == 'Admin' %}
         <div class="tab-panel">
           <div class="user-details">
+            {% for user in users %}
+            {% if user.accessID != ID %}
             <div class="single-user">
               <div class="heading">
                 <h3>{{ user.accessID }}</h3>
@@ -120,9 +121,11 @@
                 </div>
               </div>
             </div>
+            {% endif %}
+            {% endfor %}
           </div>
         </div>
-        {% endif %} {% endfor %} {% endif %}
+        {% endif %}
       </div>
     </div>
     <script src=" {% static 'user.js' %}"></script>
