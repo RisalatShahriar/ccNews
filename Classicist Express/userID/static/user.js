@@ -24,10 +24,6 @@ if (mq1.matches) {
   showPanel(0);
 }
 
-function toggle() {
-  document.querySelector(".user-details").classList.toggle("toggle");
-}
-
-document.querySelector(".heading").addEventListener("click", function () {
+document.querySelector(".view").addEventListener("click", function () {
   document.querySelector(".single-user").classList.toggle("expand");
 });
