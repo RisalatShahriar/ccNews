@@ -24,6 +24,6 @@ if (mq1.matches) {
   showPanel(0);
 }
 
-document.querySelector(".view").addEventListener("click", function () {
-  document.querySelector(".single-user").classList.toggle("expand");
+$(".view").on("click", function () {
+  $(this).closest(".single-user").toggleClass("expand");
 });
