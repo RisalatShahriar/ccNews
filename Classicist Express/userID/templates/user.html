@@ -113,6 +113,7 @@
         {% endif %}
 
         <!-- user tab panel -->
+        {% if POST == 'Admin' %}
         <div class="tab-panel">
           <div class="user-details">
             {% for user in users %}
@@ -156,6 +157,7 @@
             {% endfor %}
           </div>
         </div>
+        {% endif %}
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
