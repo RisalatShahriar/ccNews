@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.utils.regex_helper import flatten_result
 from publish import models
-from datetime import date
+from datetime import datetime as date
+import pytz
 
-today = date.today().strftime("%B %d, %Y")
+today = date.now(tz=pytz.timezone('Asia/Dhaka')).strftime("%B %d, %Y")
 
 # Create your views here.
 def readMore_page(req, link):
