@@ -30,10 +30,13 @@
       </div>
       <div class="tab-container">
         <div class="button-container">
+          {% if POST == "Admin" %}
           <button onclick="showPanel(0)" class="btn">
             <i class="far fa-bell"></i>
             <span class="btn-name">Tasks</span>
           </button>
+          {% endif %}
+
           {% if POST == "Admin" %}
           <button onclick="showPanel(1)" class="btn">
             <i class="fas fa-user"></i>
