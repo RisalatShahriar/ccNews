@@ -9,3 +9,4 @@ class News(models.Model):
     name = models.CharField(max_length=50)
     click = models.IntegerField(null=False)
     picture = models.ImageField(upload_to='news/', null=True)
+    state = models.BooleanField(default=False)

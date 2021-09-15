@@ -19,6 +19,10 @@ def userID_home(req, ID):
             delete.delete_data(str(f'media/{delete_user.image}'))
             delete_user.delete()
             delete_auth.delete()
+        elif req.POST["_method"] == 'approve':
+            approve = news_models.News.objects.get(id=req.POST['_news'])
+            approve.state = True
+            approve.save()
         else:
             logout(req)
         return redirect('login')

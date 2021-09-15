@@ -34,11 +34,12 @@
             <i class="far fa-bell"></i>
             <span class="btn-name">Tasks</span>
           </button>
-
+          {% if POST == "Admin" %}
           <button onclick="showPanel(1)" class="btn">
             <i class="fas fa-user"></i>
             <a href="#" class="btn-name">Manage Users</a>
           </button>
+          {% endif %}
 
           <button onclick="showPanel(2)" class="btn">
             <i class="fas fa-newspaper"></i>
@@ -63,27 +64,38 @@
 
         {% if POST == 'Admin' %}
         <div class="tab-panel">
-          {% for content in contents %} {{ content.heading }}
+          {% for content in contents %}
           <div class="tasks">
             <div class="heading">
               <h3>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-                quia eum atque harum corrupti distinctio esse, ad nemo!
+                {{ content.heading }}
               </h3>
               <div class="side-buttons">
-                <button type="button" class="approve">
-                  <a href="#">Approve</a>
-                </button>
-                <button type="button" class="tasks-view">
-                  <a href="#">View</a>
-                </button>
-                <form action="{{ acc_url }}#" method="post">
+                {% if content.state == False %}
+                <form action="{{ acc_url }}" method="post">
                   {% csrf_token %}
-                  <input type="hidden" name="_method" value="user" />
+                  <input type="hidden" name='_method' value="approve" />
+                  <input type='hidden' name="_news" value='{{ content.id }}'>
+                  <button type="button" class="approve">
+                    <input type="submit" value="Approve" />
+                  </button>
+                </form>
+                <button type="button" class="tasks-view">
+                  <a href="/readmore/approve/{{ content.id }}">View</a>
+                </button>
+                {% else %}
+                <button type="button" class="tasks-view">
+                  <a href="/readmore/{{ content.id }}">View</a>
+                </button>
+                {% endif %}
+
+                <form action="{{ acc_url }}" method="post">
+                  {% csrf_token %}
+                  <input type="hidden" name="_method" value="delete" />
                   <input
                     type="hidden"
                     name="_content"
-                    value="{{ user.accessID }}"
+                    value="{{ content.id }}"
                   />
                   <input type="submit" class="delete" value="Delete" />
                 </form>
@@ -91,12 +103,13 @@
             </div>
           </div>
 
-          {% empty %} No Notifications {% endfor %}
+          {% empty %} 
+          No Notifications
+          {% endfor %}
         </div>
         {% endif %}
 
         <!-- user tab panel -->
-        {% if POST == 'Admin' %}
         <div class="tab-panel">
           <div class="user-details">
             {% for user in users %}
@@ -108,7 +121,7 @@
                   <button type="button" class="view" id="view">
                     <a href="#">View</a>
                   </button>
-                  <form action="{{ acc_url }}#" method="post">
+                  <form action="{{ acc_url }}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="_method" value="user" />
                     <input
@@ -140,7 +153,6 @@
             {% endfor %}
           </div>
         </div>
-        {% endif %}
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

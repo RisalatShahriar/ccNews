@@ -2,12 +2,13 @@ import json
 
 
 def appender(send_api, i, n):
-    send_api['heading'][n] = i.heading
-    send_api['front'][n] = i.news[:100] + "..."
-    send_api['news'][n] = i.news
-    send_api['picture'][n] = str(i.picture)
-    send_api['link'][n] = i.id
-    return send_api
+    if i.state:
+        send_api['heading'][n] = i.heading
+        send_api['front'][n] = i.news[:100] + "..."
+        send_api['news'][n] = i.news
+        send_api['picture'][n] = str(i.picture)
+        send_api['link'][n] = i.id
+        return send_api
 
 
 def api_send(news):
