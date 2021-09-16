@@ -3,6 +3,10 @@
 const btnHam = document.querySelector(".ham-btn");
 const btnTimes = document.querySelector(".times-btn");
 const navBar = document.getElementById("nav-bar");
+const news = document.getElementById("inside").value;
+const socket = document.getElementById("p-news");
+
+socket.innerHTML = news;
 
 btnHam.addEventListener("click", function () {
   if (btnHam.className !== "") {
