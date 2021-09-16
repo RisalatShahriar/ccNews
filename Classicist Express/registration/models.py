@@ -9,3 +9,8 @@ class Data(models.Model):
     image = models.ImageField(null=True, upload_to='profile_pictures/')
     address = models.CharField(max_length=128)
     post = models.CharField(max_length=20)
+    state = models.BooleanField(default=False)
+
+
+class Links(models.Model):
+    state = models.BooleanField(default=True)
