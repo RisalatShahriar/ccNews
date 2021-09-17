@@ -12,9 +12,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="{% static 'user.css' %}" />
+    <link rel="stylesheet" href=" {% static 'user.css' %}" />
 
     <link rel="icon" href="{% static 'images/logo.png' %}" />
+
     <title>{{ ID }} | Cultural Classist</title>
   </head>
   <body>
@@ -35,9 +36,7 @@
             <i class="far fa-bell"></i>
             <span class="btn-name">Tasks</span>
           </button>
-          {% endif %}
-
-          {% if POST == "Admin" %}
+          {% endif %} {% if POST == "Admin" %}
           <button onclick="showPanel(1)" class="btn">
             <i class="fas fa-user"></i>
             <a href="#" class="btn-name">Manage Users</a>
@@ -70,15 +69,13 @@
           {% for content in contents %}
           <div class="tasks">
             <div class="heading">
-              <h3>
-                {{ content.heading }}
-              </h3>
+              <h3>{{ content.heading }}</h3>
               <div class="side-buttons">
                 {% if content.state == False %}
                 <form action="{{ acc_url }}" method="post">
                   {% csrf_token %}
-                  <input type="hidden" name='_method' value="approve" />
-                  <input type='hidden' name="_news" value='{{ content.id }}'>
+                  <input type="hidden" name="_method" value="approve" />
+                  <input type="hidden" name="_news" value="{{ content.id }}" />
                   <button type="button" class="approve">
                     <input type="submit" value="Approve" />
                   </button>
@@ -106,18 +103,23 @@
             </div>
           </div>
 
-          {% empty %} 
-          No Notifications
-          {% endfor %}
+          {% empty %} No Notifications {% endfor %}
         </div>
         {% endif %}
 
         <!-- user tab panel -->
-        {% if POST == 'Admin' %}
         <div class="tab-panel">
+          <div class="search-box">
+            <button class="btn-search"><i class="fas fa-search"></i></button>
+            <input
+              type="text"
+              class="input-search"
+              placeholder="Type to Search..."
+            />
+          </div>
+
           <div class="user-details">
-            {% for user in users %}
-            {% if user.accessID != ID %}
+            {% for user in users %} {% if user.accessID != ID %}
             <div class="single-user">
               <div class="heading">
                 <h3>{{ user.accessID }}</h3>
@@ -140,7 +142,7 @@
               </div>
               <div class="expand">
                 <div class="user-img">
-                  <img src="/media/{{ user.image }}" alt="Image not found" />
+                  <img src=" /media/{{ user.image }}" alt="Image not found" />
                 </div>
                 <div class="user-info">
                   <div>
@@ -152,16 +154,55 @@
                     <p>{{ user.number }}</p>
                   </div>
                 </div>
+                <div class="individual-news">
+                  <div class="heading">
+                    <h3>{{ content.heading }}</h3>
+
+                    <div class="side-buttons">
+                      {% if content.state == False %}
+                      <form action="{{ acc_url }}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="_method" value="approve" />
+                        <input
+                          type="hidden"
+                          name="_news"
+                          value="{{ content.id }}"
+                        />
+
+                        <button type="button" class="approve">
+                          <input type="submit" value="Approve" />
+                        </button>
+                      </form>
+                      <button type="button" class="tasks-view">
+                        <a href="/readmore/approve/{{ content.id }}">View</a>
+                      </button>
+                      {% else %}
+                      <button type="button" class="tasks-view">
+                        <a href="/readmore/{{ content.id }}">View</a>
+                      </button>
+                      {% endif %}
+
+                      <form action="{{ acc_url }}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="_method" value="delete" />
+                        <input
+                          type="hidden"
+                          name="_content"
+                          value="{{ content.id }}"
+                        />
+                        <input type="submit" class="delete" value="Delete" />
+                      </form>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            {% endif %}
-            {% endfor %}
+            {% endif %} {% endfor %}
           </div>
         </div>
-        {% endif %}
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{% static 'user.js' %}"></script>
+    <script src="  {% static 'user.js' %}"></script>
   </body>
 </html>
