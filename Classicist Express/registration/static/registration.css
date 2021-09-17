@@ -208,13 +208,15 @@ i {
   cursor: pointer;
 }
 
-a {
+a,
+.temporary-link {
   font-size: 16px;
   border: 1px solid #d6ae67;
   border-radius: 2px;
   padding: 15px 50px;
   color: #d6ae67;
   margin-left: 10px;
+  background-color: transparent;
 }
 
 .home-link::after {
@@ -225,7 +227,8 @@ a {
   opacity: 0;
 }
 
-a:hover {
+a:hover,
+.temporary-link:hover {
   color: #d6ae67;
   text-decoration-line: none;
   background-color: rgba(0, 0, 0, 0.2);
