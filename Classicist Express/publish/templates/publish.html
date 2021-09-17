@@ -65,13 +65,13 @@
       </div>
           
         <!--  bold and italic button -->         
-        <!-- <button class="button"><i class="fas fa-bold"></i></button>
-        <button class="button"><i class="fas fa-italic"></i></button> -->
+        <button type='button' class="button" onclick="bold()"><i class="fas fa-bold"></i></button>
+        <button type="button" class="button" onclick="italic()"><i class="fas fa-italic"></i></button>
         <!--  bold and italic button -->   
           
       <div class="input-group textarea">
         <span class="input-group-text">Body</span>
-        <textarea class="form-control" aria-label="With textarea" name="news" required></textarea>
+        <textarea class="form-control" aria-label="With textarea" name="news" id="_text" required></textarea>
       </div>
 
       <div class="input-group mb-3">
@@ -86,5 +86,7 @@
         <a href="/user/{{ id }}">Back to Home Page <i class="fas fa-arrow-right"></i></a>
       </div>
 
+      <script src="{% static 'publish.js' %}">
+      </script>
   </body>
 </html>
