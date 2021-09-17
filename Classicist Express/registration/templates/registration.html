@@ -38,6 +38,7 @@
         enctype="multipart/form-data"
       >
         {% csrf_token %}
+        <input type="hidden" name='_method' value='_register' >
         <div class="row">
           <div class="col-lg-6 form-field">
             <div class="input-div">
@@ -162,7 +163,7 @@
             <form action="{% url 'registration' %}" method="POST">
               {% csrf_token %}
               <input type="hidden" name="_method" value="temp" />
-
+              <input type="hidden" id="link" value="{{ tempo }}" />
               <input
                 type="submit"
                 value="Get Temporary Link"
