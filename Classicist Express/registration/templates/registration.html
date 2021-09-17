@@ -145,7 +145,10 @@
           
           <div class="form-field col-lg-12 home-btn">
             <a href="/user/{{ id }}">Back to Home </a>
-            <a href="#">Get a temporary link </a>
+            <form action="{% url 'registration' %}" method="POST">{% csrf_token %}
+              <input type="hidden" name="_method" value="temp" />
+              <!-- add input here -->
+            </form>
           </div>
           
         </div>
