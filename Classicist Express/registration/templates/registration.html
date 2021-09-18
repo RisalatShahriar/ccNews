@@ -163,13 +163,7 @@
             <form action="{% url 'registration' %}" method="POST">
               {% csrf_token %}
               <input type="hidden" name="_method" value="temp" />
-              <input type="hidden" id="link" value="{{ tempo }}" />
-              <input
-                type="submit"
-                value="Get Temporary Link"
-                name="temporary-link"
-                class="temporary-link"
-              />
+              <!-- <input type="hidden" id="link" value="{{ tempo }}" /> -->
             </form>
           </div>
         </div>

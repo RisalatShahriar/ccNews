@@ -1,5 +1,4 @@
 const inputs = document.querySelectorAll(".input");
-const link = document.querySelector('#link').value;
 
 function focusFunc() {
   const parent = this.parentNode.parentNode;
@@ -31,5 +30,3 @@ let loader = function (e) {
 
 let fileInput = document.getElementById("file");
 fileInput.addEventListener("change", loader);
-
-alert(`registration/${link}`)
