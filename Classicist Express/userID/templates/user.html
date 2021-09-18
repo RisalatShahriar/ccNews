@@ -136,7 +136,7 @@
                       value="{{ user.accessID }}"
                     />
                     <input type="submit" class="delete" value="Delete" />
-                    <input type="submit" class="approve" value="Approve" />
+                    <!-- <input type="submit" class="approve" value="Approve" /> -->
                   </form>
                 </div>
               </div>
@@ -154,12 +154,15 @@
                     <p>{{ user.number }}</p>
                   </div>
                 </div>
+                {% for indi_con in contents  %}
+                {% if indi_con.writer == user.accessID %}
                 <div class="individual-news">
+                  
                   <div class="heading">
-                    <h3>{{ content.heading }}</h3>
+                    <h3>{{ indi_con.heading }}</h3>
 
                     <div class="side-buttons">
-                      {% if content.state == False %}
+                      {% if indi_con.state == False %}
                       <form action="{{ acc_url }}" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="_method" value="approve" />
@@ -192,8 +195,11 @@
                         />
                         <input type="submit" class="delete" value="Delete" />
                       </form>
+                    {% endif %}
+                  
                     </div>
                   </div>
+                  {% endfor %}
                 </div>
               </div>
             </div>
