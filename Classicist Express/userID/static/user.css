@@ -648,3 +648,8 @@ a {
     justify-content: center;
   }
 }
+
+.view a,
+.tasks-view a {
+  color: #000;
+}
