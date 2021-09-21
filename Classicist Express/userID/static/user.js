@@ -26,4 +26,7 @@ if (mq1.matches) {
 
 $(".view").on("click", function () {
   $(this).closest(".single-user").toggleClass("expand");
+  $(this).text((i, v) => {
+    return v === "Hide" ? "View" : "Hide";
+  });
 });
