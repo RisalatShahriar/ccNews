@@ -1,96 +1,119 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'readmore.css' %}">
-    <link rel="icon" href="{% static 'images/logo.png' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'readmore.css' %}" />
+
+    <link rel="icon" href="{% static 'images/logo.png' %}" />
     <script
-    src="https://kit.fontawesome.com/dbed6b6114.js"
-    crossorigin="anonymous"
+      src="https://kit.fontawesome.com/dbed6b6114.js"
+      crossorigin="anonymous"
     ></script>
     <title>The Classicist Express</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class = "navigation-container">
-          <div class = "top-head">
-            <div class = "web-name">
-              <div class = "ham-btn">
-                <span>
-                    <i class = "fas fa-bars"></i>
-                </span>
+      <div class="navigation-container">
+        <div class="top-head">
+          <div class="web-name">
+            <div class="ham-btn">
+              <span>
+                <i class="fas fa-bars"></i>
+              </span>
             </div>
 
-            <div class = "times-btn">
-                <span>
-                    <i class = "fas fa-times"></i>
-                </span>
-              </div>
+            <div class="times-btn">
+              <span>
+                <i class="fas fa-times"></i>
+              </span>
+            </div>
             <div class="headline">
               <div class="image">
-                <img src="{% static 'images/newslogo.png' %}" alt="">
+                <img src="{% static 'images/newslogo.png' %}" alt="" />
               </div>
               <p>{{ time }}</p>
             </div>
           </div>
-
-
-
         </div>
 
-            <!-- nav bar -->
+        <!-- nav bar -->
 
-            <div class = "nav-bar" id = "nav-bar">
-                <nav>
-                    <ul>
-                        <li><a href = "{% url 'home' %}">Home</a></li>
-                        <li><a href = "{% url 'bd' %}">Bangladesh Affairs</a></li>
-                        <li><a href = "{% url 'achievements' %}">International Affairs</a></li>
-                        <li><a href = "{% url 'cultural' %}">Cultural Insights</a></li>
-                        <li><a href = "{% url 'sports' %}">Sports Insights</a></li>
-                        <li><a href = "{% url 'cc' %}">Cultural Classicists</a></li>
-                        <li><a href = "{% url 'interview' %}">Small Talk With Gems</a></li>
-                        <li><a href = "{% url 'youth' %}">Youth</a></li>
-                        <li><a href = "{% url 'district' %}">District Insights</a></li>
-                        <li><a href = "{% url 'achievements' %}">Achievements</a></li>
-                        <li><a href = "{% url 'trending' %}">Trending</a></li>
-                        <li><a href = "{% url 'diversed' %}">Diversed</a></li>
-                        <li><a href = "{% url 'comics' %}">Comics</a></li>
-                    </ul>
-                </nav>
+        <div class="nav-bar" id="nav-bar">
+          <nav>
+            <ul>
+              <li><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="{% url 'bd' %}">Bangladesh Affairs</a></li>
+              <li>
+                <a href="{% url 'achievements' %}">International Affairs</a>
+              </li>
+              <li><a href="{% url 'cultural' %}">Cultural Insights</a></li>
+              <li><a href="{% url 'sports' %}">Sports Insights</a></li>
+              <li><a href="{% url 'cc' %}">Cultural Classicists</a></li>
+              <li><a href="{% url 'interview' %}">Small Talk With Gems</a></li>
+              <li><a href="{% url 'youth' %}">Youth</a></li>
+              <li><a href="{% url 'district' %}">District Insights</a></li>
+              <li><a href="{% url 'achievements' %}">Achievements</a></li>
+              <li><a href="{% url 'trending' %}">Trending</a></li>
+              <li><a href="{% url 'diversed' %}">Diversed</a></li>
+              <li><a href="{% url 'comics' %}">Comics</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="news">
+      <div class="top">
+        <h1 class="headline">{{ HEADING }}</h1>
+        <p>By <i>{{ NAME }}</i></p>
+      </div>
+
+      <div class="image">
+        <img src="/media/{{ PIC }}" alt="" />
+      </div>
+
+      <div class="content">
+        <input type="hidden" id="inside" value="{{ NEWS }}" />
+        <p id="p-news"></p>
+      </div>
+
+      <!-- comment-box -->
+      <div class="comment-box">
+        <h2>Leave a Comment</h2>
+        <form action="" method="post">
+          <input
+            type="text"
+            name="fullName"
+            placeholder="Full Name..."
+            autocomplete="off"
+          />
+          <textarea
+            name="comment"
+            placeholder="Write Your Comment..."
+            autocomplete="off"
+          ></textarea>
+          <button type="submit" class="btn">Comment</button>
+        </form>
+
+        <!-- comment -->
+        <div class="container">
+          <div class="dialogbox">
+            <div class="body">
+              <span class="tip tip-up"></span>
+              <div class="comment">
+                <span
+                  >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Debitis, inventore facere. Possimus, excepturi tenetur id et
+                  vitae corrupti eius qui.</span
+                >
+              </div>
             </div>
+          </div>
         </div>
-      </header>
-      <div class="news">
-       
-      
-        <div class="top">
-          <h1 class="headline">{{ HEADING }}</h1>
-            <p>By <i>{{ NAME }}</i></p>
-        </div>
-          
-        <div class="image">
-          <img src="/media/{{ PIC }}" alt="">
-        </div>
-          
-        <div class="content">
-          <input type='hidden' id='inside' value='{{ NEWS }}' >
-          <p id='p-news'></p>
-        </div>
-          
-         <!-- comment-box -->
-        <div class="comment-box">
-          <h2>Leave a Comment</h2>
-          <form action="" method="post">
-            <input type="text" name="fullName" placeholder="Full Name..." autocomplete="off">
-            <textarea name="comment" placeholder="Write Your Comment..." autocomplete="off"></textarea>
-            <button type="submit" class="btn">Comment</button>
-          </form>
-        </div>
-        <!-- comment-box -->
+      </div>
+      <!-- comment-box -->
     </div>
     <script src="{% static 'readmore.js' %}"></script>
   </body>
