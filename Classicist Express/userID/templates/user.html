@@ -12,7 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href=" {% static 'user.css' %}" />
+    <link rel="stylesheet" href="{% static 'user.css' %}" />
 
     <link rel="icon" href="{% static 'images/logo.png' %}" />
 
@@ -22,10 +22,11 @@
     <div class="container">
       <div class="profile">
         <div class="profile-img">
-          <img src="/media/{{ PROFILE }}" alt="" />
+          <img src=" /media/{{ PROFILE }}" alt="" />
         </div>
         <div class="profile-info">
           <h3>{{ ID }}</h3>
+
           <h5>{{ POST }}</h5>
         </div>
       </div>
@@ -124,6 +125,7 @@
             <div class="single-user">
               <div class="heading">
                 <h3>{{ user.accessID }}</h3>
+
                 <div class="side-buttons">
                   <button type="button" class="view" id="view">
                     <a href="#">View</a>
@@ -143,15 +145,17 @@
               </div>
               <div class="expand">
                 <div class="user-img">
-                  <img src="/media/{{ user.image }}" alt="Image not found" />
+                  <img src=" /media/{{ user.image }}" alt="Image not found" />
                 </div>
                 <div class="user-info">
                   <div>
                     <h2>{{ user.accessID }}</h2>
+
                     <h4>{{ user.post }}</h4>
                   </div>
                   <div>
                     <p>{{ user.email }}</p>
+
                     <p>{{ user.number }}</p>
                   </div>
                 </div>
