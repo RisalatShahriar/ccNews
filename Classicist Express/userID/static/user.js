@@ -4,7 +4,7 @@ let tabButtons = document.querySelectorAll(
 
 let tabPanels = document.querySelectorAll(".tab-container .tab-panel");
 
-let mq1 = window.matchMedia("(min-width: 802px)");
+let mq1 = window.matchMedia("(min-width: 816px)");
 
 const showPanel = (i) => {
   tabButtons.forEach((node) => {
