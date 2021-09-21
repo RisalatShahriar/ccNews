@@ -16,7 +16,7 @@ a {
   text-decoration: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 815px) {
   .profile {
     display: flex;
     justify-content: flex-start;
@@ -83,7 +83,7 @@ a {
     margin-bottom: 20px;
   }
 
-  input {
+  .logout input {
     background-color: transparent;
     color: #ccc;
     border: none;
@@ -240,17 +240,28 @@ a {
   }
 }
 
-@media (min-width: 802px) {
+@media (min-width: 816px) {
   .container {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     color: #fff;
-    margin: 30px;
+    margin: 20px;
   }
 
   .profile {
     flex: 1 1 30%;
+    margin-right: 60px;
+    box-shadow: rgba(205, 205, 162, 0.25) 0px 13px 27px -5px,
+      rgba(250, 250, 250, 0.3) 0px 8px 16px -8px;
+    text-align: center;
+    padding: 15px;
+  }
+
+  @media (max-width: 866px) {
+    .profile {
+      margin-right: 10px;
+    }
   }
 
   .tab-container {
@@ -260,7 +271,8 @@ a {
   .profile-img {
     height: 250px;
     width: 250px;
-    margin: 20px;
+    margin: auto;
+    margin-bottom: 25px;
   }
 
   .profile-img img {
@@ -274,6 +286,7 @@ a {
     display: flex;
     align-items: center;
     margin: 20px 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
   }
 
   .button-container button {
@@ -424,6 +437,11 @@ a {
       .button-container button {
         padding: 5px;
         margin-right: 5px;
+        margin-bottom: 10px;
+      }
+
+      .logout {
+        margin-bottom: 7px;
       }
     }
   }
@@ -608,5 +626,25 @@ a {
   }
   .tasks {
     max-height: 500px;
+  }
+}
+
+@media (max-width: 444px) {
+  .individual-news .approve,
+  .individual-news .delete,
+  .individual-news .tasks-view {
+    margin: 10px 4px 0 0;
+  }
+}
+.approve input {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  margin: 0;
+}
+
+@media (max-width: 386px) {
+  .individual-news .side-buttons {
+    justify-content: center;
   }
 }
