@@ -23,7 +23,7 @@ urlpatterns = [
     path('registration/', include('registration.urls')),
     path('user/', include('userID.urls')),
     path('readmore/', include('readMore.urls')),
-    path('publish', include('publish.urls')),
+    path('publish/', include('publish.urls')),
     path('denied/', include('denied.urls')),
     path('api/', include('api.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
