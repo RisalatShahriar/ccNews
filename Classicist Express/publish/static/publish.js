@@ -1,9 +1,9 @@
-const textarea = document.querySelector('#_text');
-
 function bold() {
+    var textarea = document.querySelector('#_text');
     textarea.innerHTML += '<b></b>';
 }
 
 function italic() {
-    textarea.innerHTML += '<i></i>'
+    var textarea = document.querySelector('#_text');
+    textarea.innerHTML += '<i></i>';
 }

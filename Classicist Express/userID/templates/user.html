@@ -159,9 +159,9 @@
                     <p>{{ user.number }}</p>
                   </div>
                 </div>
-                {% for indi_con in contents %} {% if indi_con.writer ==
-                user.accessID %}
                 <h2 class="news">News</h2>
+                {% for indi_con in contents %} 
+                {% if indi_con.writer == user.accessID %}
                 <div class="individual-news">
                   <div class="heading">
                     <h3>{{ indi_con.heading }}</h3>
