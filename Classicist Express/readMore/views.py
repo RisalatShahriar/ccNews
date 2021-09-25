@@ -10,9 +10,10 @@ today = date.now(tz=pytz.timezone('Asia/Dhaka')).strftime("%B %d, %Y")
 # Create your views here.
 def readMore_page(req, link):
     news = models.News.objects.get(id=link)
+    comment = com_mod.Comment.objects.filter(info=link)
     if news.state == 1:
         if req.method == 'POST':
-            com_info = com_mod.Comment(name=req.POST['fullName'], date=today, comment=req.POST['comment'])
+            com_info = com_mod.Comment(name=req.POST['fullName'], date=today, comment=req.POST['comment'], info=link)
             com_info.save()
             return render(req, 'readmore.html', {
                 'HEADING': news.heading,
@@ -20,7 +21,8 @@ def readMore_page(req, link):
                 'PIC': news.picture,
                 "NAME": news.name,
                 'time': today,
-                'acc_url': f'/readmore/{link}'
+                'acc_url': f'/readmore/{link}',
+                'comments': comment
             })
         else:
             news.click += 1
