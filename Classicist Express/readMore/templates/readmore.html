@@ -81,6 +81,30 @@
 
       <!-- comment-box -->
       <div class="comment-box">
+        <div class="container">
+          <div class="dialogbox">
+            <h2>Comments</h2>
+            <!-- comment -->
+            <div class="body">
+              <div class="comment">
+                <div class="user-details">
+                  <div class="user-img">
+                    <img src="images/profile.png" alt="" />
+                  </div>
+                  <h2>Srayoshi Ghosh</h2>
+                  <p>- 25 September, 2021</p>
+                </div>
+                <span
+                  >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Debitis, inventore facere. Possimus, excepturi tenetur id et
+                  vitae corrupti eius qui.</span
+                >
+              </div>
+            </div>
+            <!-- comment -->
+          </div>
+        </div>
+
         <h2>Leave a Comment</h2>
         <form action="{{ acc_url }}" method="post">
           {% csrf_token %}
@@ -97,22 +121,6 @@
           ></textarea>
           <button type="submit" class="btn">Comment</button>
         </form>
-
-        <!-- comment -->
-        <div class="container">
-          <div class="dialogbox">
-            <div class="body">
-              <span class="tip tip-up"></span>
-              <div class="comment">
-                <span
-                  >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Debitis, inventore facere. Possimus, excepturi tenetur id et
-                  vitae corrupti eius qui.</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <!-- comment-box -->
     </div>
