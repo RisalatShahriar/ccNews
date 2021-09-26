@@ -1,9 +1,14 @@
+var textarea = document.querySelector('#_text');
+
+
 function bold() {
-    var textarea = document.querySelector('#_text').innerHTML;
-    textarea += '<b></b>';
+    textarea.value += '<b></b>';
+    textarea.focus();
+    textarea.setSelectionRange(textarea.value.length,textarea.value.length-4)
 }
 
 function italic() {
-    var textarea = document.querySelector('#_text').innerHTML;
-    textarea += '<i></i>';
+    textarea.value += '<i></i>';
+    textarea.focus();
+    textarea.setSelectionRange(textarea.value.length,textarea.value.length-4)
 }
