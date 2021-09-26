@@ -54,7 +54,7 @@
           <span class="input-group-text" id="basic-addon1"
             ><i class="fas fa-images"></i
           ></span>
-          <input type="file" class="form-control" id="myFile" name="picnews" required />
+          <input type="file" class="form-control" id="myFile" name="picnews" accept="image/*" required />
         </div>
 
       <div class="input-group mb-3">
@@ -81,7 +81,7 @@
         <input type="text" class="form-control" placeholder="Name" name="name" required />
       </div>
 
-     <input type="submit" class="btn btn-dark btn-lg" value="PUBLISH" />
+     <input type="submit" class="btn btn-dark btn-lg" value="PUBLISH" onclick="check()" />
   </form>
         <a href="/user/{{ id }}">Back to Home Page <i class="fas fa-arrow-right"></i></a>
       </div>
