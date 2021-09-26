@@ -84,18 +84,15 @@
         <div class="container">
           <div class="dialogbox">
             <h2>Comments</h2>
-            {% for commnet in comments %}
+            {% for commnet in comms %}
             <div class="body">
               <div class="comment">
                 <div class="user-details">
-                  <div class="user-img">
-                    <img src="images/profile.png" alt="" />
-                  </div>
-                  <h2>comment.name</h2>
+                  <h2>commnet.name</h2>
                   <p>- commnet.date</p>
                 </div>
                 <span
-                  >comment.comment</span
+                  >commnet.comment</span
                 >
               </div>
             </div>

@@ -22,7 +22,7 @@ def readMore_page(req, link):
                 "NAME": news.name,
                 'time': today,
                 'acc_url': f'/readmore/{link}',
-                'comments': comment
+                'comms': comment
             })
         else:
             news.click += 1
