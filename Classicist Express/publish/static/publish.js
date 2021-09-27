@@ -2,17 +2,11 @@ var textarea = document.querySelector('#_text');
 
 
 function check(){
-    var file = document.querySelector("#myFile");
-    var count = 1;
-    var type;
-    while (count<4) {
-        op = file.value.lenght-count
-        type += file.value[op]
-        count++
+    var file = document.querySelector("#myFile").value;
+    extension = file.split('.').pop();
+    if (extension == 'png' || extension == 'jpg' || extension == 'jpge') {
+        document.querySelector("#_check").value = 'Pass'
     }
-    console.log(type)
-    
-    
 }
 
 function bold() {
