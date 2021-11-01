@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <!-- Boxicons CDN Link -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/2932a7912c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="./css/tagsinput.css" />
+    <script type="text/javascript" src="./js/tagsinput.js"></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/git/jquery-3.x-git.min.js"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./css/toaster.css" />
+    <title>User Management | TheClassicistsExpress</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-details">
+        <section
+          class="bx icon"
+          style="
+            background-image: url('./images/logo_white.png');
+            height: 200px;
+            width: 200px;
+            background-size: cover;
+          "
+        ></section>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+
+      <ul class="nav-list">
+        <li>
+          <a href="./Dashboard" id="nav_dashboard">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+          <a href="./Users" id="nav_users">
+            <i class="bx bx-user"></i>
+            <span class="links_name">Users</span>
+          </a>
+          <span class="tooltip">Users</span>
+        </li>
+        <li>
+          <a href="./News" id="nav_news">
+            <i class="bx bx-chat"></i>
+            <span class="links_name">News</span>
+          </a>
+          <span class="tooltip">News</span>
+        </li>
+        <li>
+          <a href="./Settings" id="nav_settings">
+            <i class="bx bx-cog"></i>
+            <span class="links_name">Setting</span>
+          </a>
+          <span class="tooltip">Setting</span>
+        </li>
+        <li class="profile">
+          <div class="name">Adnan Khan Akib</div>
+          <div class="sign_out">Sign out</div>
+          <i class="bx bx-log-out" id="log_out"></i>
+        </li>
+      </ul>
+    </div>
+    <title>User Management | TheClassicistsExpress</title>
+    <link rel="stylesheet" type="text/css" href="./css/users.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://raw.githubusercontent.com/accursoft/caret/master/jquery.caret.js"
+    ></script>
+    <section class="home-section">
+      <div class="text">User Management</div>
+      <div class="management-header">
+        <div class="row">
+          <div class="col-8">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Search user by name, username, invitor"
+            />
+          </div>
+          <div class="col-4">
+            <a href="#invitationModal" class="edit" data-toggle="modal"
+              ><button type="button" class="btn btn-success btn-sm">
+                <i class="fas fa-user-plus"></i> Invite User
+              </button></a
+            >
+            <a href="#editEmployeeModal" class="edit" data-toggle="modal"
+              ><button type="button" class="btn btn-primary btn-sm">
+                <i class="fas fa-plus-circle"></i> Create User
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+
+      <section class="userList">
+        <section class="ucard">
+          <section class="profilePic"></section>
+          <h4>Adnan Khan Akib</h4>
+          <small>
+            <table class="table">
+              <tr>
+                <td>Articles<br />10</td>
+                <td>Reputation<br />15</td>
+                <td>Report<br />1</td>
+              </tr>
+            </table>
+          </small>
+          <section class="small">
+            Last seen<br />9th August, 2021 - 08:41AM
+          </section>
+          <section class="actions">
+            <button type="button" class="btn btn-primary btn-sm">
+              <i class="fas fa-chart-line"></i> Stats
+            </button>
+            <button type="button" class="btn btn-warning btn-sm">
+              <i class="fas fa-ban"></i> Suspend
+            </button>
+            <button type="button" class="btn btn-danger btn-sm">
+              <i class="fas fa-trash"></i> Delete
+            </button>
+            <button type="button" class="btn btn-dark btn-sm">
+              <i class="fas fa-edit"></i> Modify
+            </button>
+          </section>
+        </section>
+        <section class="ucard">
+          <section class="profilePic"></section>
+          <h4>Adnan Khan Akib</h4>
+          <small>
+            <table class="table">
+              <tr>
+                <td>Articles<br />10</td>
+                <td>Reputation<br />15</td>
+                <td>Report<br />1</td>
+              </tr>
+            </table>
+          </small>
+          <section class="small">
+            Last seen<br />9th August, 2021 - 08:41AM
+          </section>
+          <section class="actions">
+            <button type="button" class="btn btn-primary btn-sm">
+              <i class="fas fa-chart-line"></i> Stats
+            </button>
+            <button type="button" class="btn btn-warning btn-sm">
+              <i class="fas fa-ban"></i> Suspend
+            </button>
+            <button type="button" class="btn btn-danger btn-sm">
+              <i class="fas fa-trash"></i> Delete
+            </button>
+            <button type="button" class="btn btn-dark btn-sm">
+              <i class="fas fa-edit"></i> Modify
+            </button>
+          </section>
+        </section>
+        <section class="ucard">
+          <section class="profilePic"></section>
+          <h4>Adnan Khan Akib</h4>
+          <small>
+            <table class="table">
+              <tr>
+                <td>Articles<br />10</td>
+                <td>Reputation<br />15</td>
+                <td>Report<br />1</td>
+              </tr>
+            </table>
+          </small>
+          <section class="small">
+            Last seen<br />9th August, 2021 - 08:41AM
+          </section>
+          <section class="actions">
+            <button type="button" class="btn btn-primary btn-sm">
+              <i class="fas fa-chart-line"></i> Stats
+            </button>
+            <button type="button" class="btn btn-warning btn-sm">
+              <i class="fas fa-ban"></i> Suspend
+            </button>
+            <button type="button" class="btn btn-danger btn-sm">
+              <i class="fas fa-trash"></i> Delete
+            </button>
+            <button type="button" class="btn btn-dark btn-sm">
+              <i class="fas fa-edit"></i> Modify
+            </button>
+          </section>
+        </section>
+        <section class="ucard">
+          <section class="profilePic"></section>
+          <h4>Adnan Khan Akib</h4>
+          <small>
+            <table class="table">
+              <tr>
+                <td>Articles<br />10</td>
+                <td>Reputation<br />15</td>
+                <td>Report<br />1</td>
+              </tr>
+            </table>
+          </small>
+          <section class="small">
+            Last seen<br />9th August, 2021 - 08:41AM
+          </section>
+          <section class="actions">
+            <button type="button" class="btn btn-primary btn-sm">
+              <i class="fas fa-chart-line"></i> Stats
+            </button>
+            <button type="button" class="btn btn-warning btn-sm">
+              <i class="fas fa-ban"></i> Suspend
+            </button>
+            <button type="button" class="btn btn-danger btn-sm">
+              <i class="fas fa-trash"></i> Delete
+            </button>
+            <button type="button" class="btn btn-dark btn-sm">
+              <i class="fas fa-edit"></i> Modify
+            </button>
+          </section>
+        </section>
+        <section class="ucard">
+          <section class="profilePic"></section>
+          <h4>Adnan Khan Akib</h4>
+          <small>
+            <table class="table">
+              <tr>
+                <td>Articles<br />10</td>
+                <td>Reputation<br />15</td>
+                <td>Report<br />1</td>
+              </tr>
+            </table>
+          </small>
+          <section class="small">
+            Last seen<br />9th August, 2021 - 08:41AM
+          </section>
+          <section class="actions">
+            <button type="button" class="btn btn-primary btn-sm">
+              <i class="fas fa-chart-line"></i> Stats
+            </button>
+            <button type="button" class="btn btn-warning btn-sm">
+              <i class="fas fa-ban"></i> Suspend
+            </button>
+            <button type="button" class="btn btn-danger btn-sm">
+              <i class="fas fa-trash"></i> Delete
+            </button>
+            <button type="button" class="btn btn-dark btn-sm">
+              <i class="fas fa-edit"></i> Modify
+            </button>
+          </section>
+        </section>
+        <section class="ucard">
+          <section class="profilePic"></section>
+          <h4>Adnan Khan Akib</h4>
+          <small>
+            <table class="table">
+              <tr>
+                <td>Articles<br />10</td>
+                <td>Reputation<br />15</td>
+                <td>Report<br />1</td>
+              </tr>
+            </table>
+          </small>
+          <section class="small">
+            Last seen<br />9th August, 2021 - 08:41AM
+          </section>
+          <section class="actions">
+            <button type="button" class="btn btn-primary btn-sm">
+              <i class="fas fa-chart-line"></i> Stats
+            </button>
+            <button type="button" class="btn btn-warning btn-sm">
+              <i class="fas fa-ban"></i> Suspend
+            </button>
+            <button type="button" class="btn btn-danger btn-sm">
+              <i class="fas fa-trash"></i> Delete
+            </button>
+            <button type="button" class="btn btn-dark btn-sm">
+              <i class="fas fa-edit"></i> Modify
+            </button>
+          </section>
+        </section>
+      </section>
+    </section>
+    <!-- Invite Modal -->
+    <div id="invitationModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title">Send Invitation</h4>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-hidden="true"
+              >
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inviteToName"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>E-Mail Address</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inviteMail"
+                  required
+                />
+              </div>
+              <select
+                class="form-control"
+                id="invite_user_role"
+                style="height: 38px"
+              >
+                <option value="1">Admin</option>
+                <option value="2" selected>Content Writer</option>
+                <option value="3">Supervisor</option>
+                <option value="4">Developer</option>
+              </select>
+            </div>
+
+            <div class="modal-footer">
+              <input
+                type="button"
+                class="btn btn-default"
+                data-dismiss="modal"
+                value="Cancel"
+              />
+              <input
+                type="button"
+                class="btn btn-info"
+                id="sendInvite"
+                value="Send"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Edit Modal HTML -->
+    <div id="editEmployeeModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title">Add User</h4>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-hidden="true"
+              >
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" required />
+              </div>
+              <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" required />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" required />
+              </div>
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" required />
+              </div>
+              <div class="form-group">
+                <select class="form-control" style="height: 38px">
+                  <option value="1">Admin</option>
+                  <option value="2" selected>Content Writer</option>
+                  <option value="3">Supervisor</option>
+                  <option value="4">Developer</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input
+                type="button"
+                class="btn btn-default"
+                data-dismiss="modal"
+                value="Cancel"
+              />
+              <input type="submit" class="btn btn-primary" value="Add" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Delete Modal HTML -->
+    <div id="deleteEmployeeModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title">Delete Employee</h4>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-hidden="true"
+              >
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete these Records?</p>
+              <p class="text-warning">
+                <small>This action cannot be undone.</small>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <input
+                type="button"
+                class="btn btn-default"
+                data-dismiss="modal"
+                value="Cancel"
+              />
+              <input type="submit" class="btn btn-danger" value="Delete" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="./js/header.js"></script>
+    <script type="text/javascript" src="./js/toaster.js"></script>
+    <script type="text/javascript" src="./js/users.js"></script>
+  </body>
+</html>
+<toaster></toaster>

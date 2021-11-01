@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <!-- Boxicons CDN Link -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/2932a7912c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="./css/tagsinput.css" />
+    <script type="text/javascript" src="./js/tagsinput.js"></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/git/jquery-3.x-git.min.js"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./css/toaster.css" />
+    <title>News Management | TheClassicistsExpress</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-details">
+        <section
+          class="bx icon"
+          style="
+            background-image: url('./images/logo_white.png');
+            height: 200px;
+            width: 200px;
+            background-size: cover;
+          "
+        ></section>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+
+      <ul class="nav-list">
+        <li>
+          <a href="./Dashboard" id="nav_dashboard">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+          <a href="./Users" id="nav_users">
+            <i class="bx bx-user"></i>
+            <span class="links_name">Users</span>
+          </a>
+          <span class="tooltip">Users</span>
+        </li>
+        <li>
+          <a href="./News" id="nav_news">
+            <i class="bx bx-chat"></i>
+            <span class="links_name">News</span>
+          </a>
+          <span class="tooltip">News</span>
+        </li>
+        <li>
+          <a href="./Settings" id="nav_settings">
+            <i class="bx bx-cog"></i>
+            <span class="links_name">Setting</span>
+          </a>
+          <span class="tooltip">Setting</span>
+        </li>
+        <li class="profile">
+          <div class="name">Adnan Khan Akib</div>
+          <div class="sign_out">Sign out</div>
+          <i class="bx bx-log-out" id="log_out"></i>
+        </li>
+      </ul>
+    </div>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://raw.githubusercontent.com/accursoft/caret/master/jquery.caret.js"
+    ></script>
+    <link rel="stylesheet" href="./css/news.css" />
+    <section class="home-section">
+      <div class="text">News Management</div>
+      <section class="content">
+        <!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="writeArticle" data-target="#exampleModal" style="margin-left: 1%;"><i class="fas fa-pen-square"></i> New Article</button> -->
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          data-toggle="modal"
+          data-target="#newArticle"
+          style="margin-left: 1%"
+          id="writeArticle"
+        >
+          <i class="fas fa-pen-square"></i> New Article
+        </button>
+
+        <div class="news_list">
+          <div class="news_card" id="d_4">
+            <section
+              class="image"
+              style="
+                background-image: url(./image-management/image/d2a23f9be448f491c0906c3e775c3584e7c5921e155e19a99a1500daa42e1abd);
+              "
+            ></section>
+            <h6>ami ke</h6>
+            <p>amar <b>name</b> akib</p>
+
+            <ul class="stats">
+              <li title="Saved as draft">
+                <span class="badge badge-danger">Draft</span>
+              </li>
+            </ul>
+            <ul class="actions">
+              <li>
+                <button
+                  type="button"
+                  class="btn btn-primary btn-sm btn_edit"
+                  value="d_4"
+                  data-toggle="modal"
+                  data-target="#newArticle"
+                >
+                  <i class="fas fa-edit"></i> Edit
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  class="btn btn-primary btn-sm btn_view"
+                  value="d_4"
+                >
+                  <i class="fas fa-external-link-alt"></i> View
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  class="btn btn-danger btn-sm btn_delete"
+                  value="d_4"
+                >
+                  <i class="fas fa-trash"></i> Delete
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="news_card" id="d_2">
+            <section
+              class="image"
+              style="
+                background-image: url(./image-management/image/23c6fa7a633c1a13435c7bc873c73651834c62be72ad19bfa5ad92239c1a2f60);
+              "
+            ></section>
+            <h6>Untitled2</h6>
+            <p>Hello world test</p>
+
+            <ul class="stats">
+              <li title="Views"><i class="fas fa-eye"></i> 650 |</li>
+              <li title="Comments"><i class="fas fa-comments"></i> 650 |</li>
+              <li title="Loves"><i class="fas fa-heart"></i> 30</li>
+            </ul>
+            <ul class="actions">
+              <li>
+                <button type="button" class="btn btn-primary btn-sm" id="p_2">
+                  <i class="fas fa-edit"></i> Edit
+                </button>
+              </li>
+              <li>
+                <button type="button" class="btn btn-primary btn-sm" id="p_2">
+                  <i class="fas fa-external-link-alt"></i> View
+                </button>
+              </li>
+              <li>
+                <button type="button" class="btn btn-danger btn-sm" id="p_2">
+                  <i class="fas fa-trash"></i> Delete
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- <ul class="allnews">
+            <li>
+                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=333&q=80">
+                <section class="details">
+                    <p class="title">Lor sit amet, adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna.</p>
+                    <small title="views"><i class="fas fa-eye"></i>650</small>
+                </section>
+                <section class="action">
+                    <button type="button" class="btn btn-warning btn-sm"><i class="far fa-edit"></i> Edit</button>
+                    <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
+                </section>
+            </li>
+            <li>
+                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=333&q=80">
+                <section class="details">
+                    <p class="title">Loresit amet, adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna.</p>
+                    <small title="views"><i class="fas fa-eye"></i>650</small>
+                </section>
+                <section class="action">
+                    <button type="button" class="btn btn-warning btn-sm"><i class="far fa-edit"></i> Edit</button>
+                    <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>
+                </section>
+            </li>
+        </ul> -->
+      </section>
+    </section>
+    <!-- Modal -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <div
+      class="modal fade"
+      id="newArticle"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="newArticle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              <i class="fas fa-newspaper"></i> Write new article
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="news_writing">
+              <section class="toolstrip">
+                <ul>
+                  <li title="Bold" class="bold_btn">
+                    <i class="fas fa-bold"></i>
+                  </li>
+                  <li title="Italic" class="italic_btn">
+                    <i class="fas fa-italic"></i>
+                  </li>
+                  <li title="Underline" class="underline_btn">
+                    <i class="fas fa-underline"></i>
+                  </li>
+                </ul>
+              </section>
+              <textarea class="writing-area"></textarea>
+            </div>
+            <div id="news_publishing" style="display: none">
+              <div class="row">
+                <div class="col">
+                  <div class="tags">
+                    <div class="mb-3">
+                      <label for="newsTitle" class="form-label"
+                        >News Title</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="newsTitle"
+                        value="Untitled"
+                      />
+                    </div>
+
+                    <select
+                      class="form-select form-select-sm mb-3"
+                      aria-label=".form-select-sm example"
+                    >
+                      <option selected>Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div class="mb-3">
+                      <label for="tags" class="form-label">Tags</label>
+                      <input
+                        type="text"
+                        value=""
+                        data-role="tagsinput"
+                        placeholder="Tags"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <section id="thumbnail_option">
+                    <label for="thumbnail" class="form-label"
+                      >Upload thumbnail</label
+                    >
+                    <input
+                      class="form-control form-control-sm"
+                      id="thumbnail"
+                      type="file"
+                    />
+                    <h6>Thumbnail Preview</h6>
+                    <div id="thumbnail_preview"></div>
+                  </section>
+                </div>
+                <!--                 <section id="banner_option">
+                        <label for="banner" class="form-label">Upload banner</label>
+                        <input class="form-control form-control-sm" id="banner" type="file" />
+                        <h6>Banner Preview</h6>
+                        <div id="banner_preview"></div>
+                    </section> -->
+              </div>
+
+              <div class="image_option"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="newArticleClose"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="back_btn">
+              Back
+            </button>
+            <button type="button" class="btn btn-primary" id="continue_btn">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="./js/header.js"></script>
+    <script type="text/javascript" src="./js/news.js"></script>
+    <script type="text/javascript" src="./js/toaster.js"></script>
+  </body>
+</html>
+<toaster></toaster>

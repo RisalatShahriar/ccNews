@@ -1,0 +1,29 @@
+.userList{
+    margin-left: 1%;
+}
+.userList .ucard{
+    background: white;
+    padding: 1%;
+    float: left;
+    margin: 5px;
+    width: 32%;
+    text-align: center;
+}
+.userList .ucard .profilePic{
+    background-image: url('../image-management/image/defaultAvatar');
+    height: 120px;
+    background-size: contain;
+    width: 120px;
+    margin: auto;
+    border-radius: 50%;
+}
+.userList .ucard h4{}
+.userList .ucard .small{margin-top: -21px;}
+.userList .ucard .actions{
+    margin-top: 6px;
+}
+.tablex{}
+.management-header{
+    margin: 17px;
+    margin-bottom: 3px;
+}
